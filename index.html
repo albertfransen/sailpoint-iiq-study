@@ -1623,12 +1623,12 @@
       "q": "During provisioning, IdentityIQ needs to create an account on a target application but the connector is temporarily unavailable. What happens to the provisioning request?",
       "o": [
         "The request is permanently lost and must be manually recreated",
-        "The request is queued and retried according to the configured retry policy",
+        "The request is queued by the integration executor for later processing, or a work item is created for manual fulfillment",
         "The identity is deleted from IdentityIQ until the connector is available",
         "All other provisioning operations across all applications are halted"
       ],
       "a": 1,
-      "e": "IIQ queues failed provisioning requests and retries them based on configuration. Requests aren't permanently lost on transient failures. The identity isn't affected by a connector outage. Other provisioning operations to different applications continue independently."
+      "e": "When a provisioning request cannot be immediately fulfilled (e.g., connector unavailable), integration executors queue the activity. For unmanaged applications, work items are created and assigned to the responsible user (often the application owner) for manual fulfillment. The request is not silently discarded."
     },
     {
       "d": 7,
@@ -1683,12 +1683,12 @@
       "q": "What role does the provisioning broker play in IdentityIQ's provisioning architecture?",
       "o": [
         "It acts as a message queue between the UI and the database",
-        "It receives provisioning plans and routes them to the appropriate connectors for execution on target applications",
+        "It compiles and partitions provisioning plans, then routes each partition to the appropriate connector, integration executor, or manual work item",
         "It provides the user interface for access request submission",
         "It generates reports on provisioning activity"
       ],
       "a": 1,
-      "e": "The provisioning broker is the central component that receives provisioning plans from workflows and other sources, then routes the account operations to the correct application connectors for execution. It's not a message queue. The UI is separate from the provisioning engine. Reporting is handled by the report framework."
+      "e": "The Provisioning Broker receives a provisioning plan, compiles it by partitioning it into application-specific sub-plans, then routes each to the appropriate handler: a direct read-write connector, an integration executor for managed integrations, or a manual work item for unmanaged applications. It does not interface with users directly."
     },
     {
       "d": 7,
@@ -2447,7 +2447,7 @@
     {
       "d": 7,
       "t": "Provisioning Broker",
-      "def": "The central component that receives provisioning plans from workflows and routes account operations to the correct application connectors for execution."
+      "def": "The central component that receives provisioning plans, compiles and partitions them by application, then routes each partition to the appropriate handler: a direct connector, integration executor, or manual work item for unmanaged applications."
     },
     {
       "d": 7,
@@ -2477,7 +2477,7 @@
     {
       "d": 8,
       "t": "Targeted Certification",
-      "def": "A one-time certification launched ad-hoc from identity search results, risk score pages, or policy violation pages for specific identities."
+      "def": "The most flexible certification type in IIQ, allowing you to certify role, entitlement, and account access for a narrowly defined set of users. Can be scheduled or run ad-hoc. Unlike Advanced certifications, Targeted certs are inclusive — you select what to include rather than exclude."
     },
     {
       "d": 8,
