@@ -1521,9 +1521,1000 @@
       ],
       "a": 0,
       "e": "The remediation workflow orchestrates the response to a violation: notifying the right people, presenting remediation options (revoke access, grant exception, delegate), and tracking the resolution. It doesn't delete identities. It doesn't disable the detecting policy. It provides a complete governance process, not just a notification."
+    },
+    {
+      "d": 7,
+      "q": "An organization wants to automatically disable all application accounts when an employee is terminated. Which IdentityIQ feature should be configured?",
+      "o": [
+        "An aggregation task that removes terminated user accounts",
+        "A scheduled certification campaign for terminated users",
+        "A password policy that expires credentials on termination",
+        "A Leaver lifecycle event linked to a business process that disables accounts"
+      ],
+      "a": 3,
+      "e": "Leaver lifecycle events detect termination (typically from the authoritative source) and trigger a business process/workflow that creates a provisioning plan to disable or delete accounts. Certifications review access periodically but aren't triggered by termination events. Password policies manage credential rules, not account lifecycle. Aggregation reads data from applications but doesn't disable accounts based on employment status."
+    },
+    {
+      "d": 7,
+      "q": "A new employee joins the Finance department. IdentityIQ should automatically create an Active Directory account and assign the 'Finance Users' group. Which provisioning approach handles this?",
+      "o": [
+        "Manual account creation by the helpdesk",
+        "Birthright provisioning triggered by a Joiner lifecycle event",
+        "A certification campaign that adds missing access",
+        "Role mining that detects the needed access pattern"
+      ],
+      "a": 1,
+      "e": "Joiner lifecycle events detect new identities and trigger business processes that execute birthright provisioning plans, automatically creating accounts and assigning baseline entitlements. Manual creation is error-prone and slow. Certifications review existing access, they don't create new accounts. Role mining discovers patterns but doesn't provision access."
+    },
+    {
+      "d": 7,
+      "q": "What is a provisioning plan in IdentityIQ?",
+      "o": [
+        "A structured set of instructions describing the accounts and entitlements to create, modify, or remove on target applications",
+        "A project timeline for deploying IdentityIQ in an organization",
+        "A backup plan for restoring identity data after a failure",
+        "A report showing all provisioning activities over the past month"
+      ],
+      "a": 0,
+      "e": "A provisioning plan is an IIQ object that describes the desired state changes for accounts and entitlements on target applications (create account, add entitlement, disable account, etc.). It is not a project timeline. It is not a backup mechanism. Provisioning reports are separate objects that show historical activity."
+    },
+    {
+      "d": 7,
+      "q": "An employee transfers from the Sales department to Engineering. Which lifecycle event type in IdentityIQ detects and handles this type of change?",
+      "o": [
+        "A Leaver event followed by a separate Joiner event for the same person",
+        "A Mover lifecycle event triggered by detecting the department attribute change",
+        "A certification campaign specifically configured for department transfers",
+        "An aggregation task that automatically reassigns department-based access"
+      ],
+      "a": 1,
+      "e": "Mover lifecycle events detect attribute changes on existing identities (like department transfers) and trigger business processes that can revoke old access and provision new access appropriate for the new department. A Leaver+Joiner would incorrectly treat this as termination and rehire, losing history. Certifications review existing access but aren't triggered by attribute changes. Aggregation reads data from applications but doesn't reassign access based on identity attribute changes."
+    },
+    {
+      "d": 7,
+      "q": "Which type of provisioning requires a user or manager to submit a request through the IdentityIQ portal?",
+      "o": [
+        "Request-based provisioning through Lifecycle Manager",
+        "Birthright provisioning via Joiner lifecycle events",
+        "Automatic provisioning triggered by role assignment rules",
+        "Event-driven provisioning from a Mover lifecycle event"
+      ],
+      "a": 0,
+      "e": "Request-based provisioning requires an explicit request through the LCM portal, typically with an approval workflow. Birthright provisioning happens automatically based on identity attributes. Automatic provisioning from role assignment rules doesn't require a request. Event-driven provisioning triggers from identity changes, not user requests."
+    },
+    {
+      "d": 7,
+      "q": "An IdentityIQ administrator configures a Joiner lifecycle event. What triggers this event?",
+      "o": [
+        "A manager submitting an access request for a new hire",
+        "A user clicking a 'New Employee' button in the IIQ portal",
+        "The creation of a new application account on any target system",
+        "The detection of a new identity during aggregation from the authoritative source"
+      ],
+      "a": 3,
+      "e": "Joiner events are triggered when a new identity is detected during aggregation from the authoritative source (typically HR). They aren't triggered by portal buttons. New accounts on target systems are created as a result of the Joiner event, not the trigger. Manager access requests go through request-based provisioning, not lifecycle events."
+    },
+    {
+      "d": 7,
+      "q": "What is the relationship between lifecycle events and business processes (workflows) in IdentityIQ?",
+      "o": [
+        "Lifecycle events and business processes are the same thing with different names",
+        "Business processes trigger lifecycle events when provisioning is complete",
+        "Lifecycle events trigger business processes that contain the provisioning logic and approval steps",
+        "Lifecycle events replace business processes in newer versions of IIQ"
+      ],
+      "a": 2,
+      "e": "Lifecycle events detect identity changes and invoke business processes (workflows) that define what actions to take, including provisioning, notifications, and approvals. Business processes don't trigger lifecycle events; it's the other direction. They are distinct concepts with different roles. Lifecycle events have not replaced business processes; they work together."
+    },
+    {
+      "d": 7,
+      "q": "An organization wants to give employees the ability to request access to additional applications through a self-service portal. Which IdentityIQ component provides this?",
+      "o": [
+        "The identity refresh task",
+        "The aggregation task configuration",
+        "The certification campaign scheduler",
+        "Lifecycle Manager (LCM) with access request QuickLinks"
+      ],
+      "a": 3,
+      "e": "Lifecycle Manager provides self-service access request capabilities through QuickLinks on the user's home page, allowing users to request roles and entitlements with approval workflows. Aggregation reads data from applications. Certifications review existing access. Identity refresh recalculates identity attributes."
+    },
+    {
+      "d": 7,
+      "q": "During provisioning, IdentityIQ needs to create an account on a target application but the connector is temporarily unavailable. What happens to the provisioning request?",
+      "o": [
+        "The request is permanently lost and must be manually recreated",
+        "The request is queued and retried according to the configured retry policy",
+        "The identity is deleted from IdentityIQ until the connector is available",
+        "All other provisioning operations across all applications are halted"
+      ],
+      "a": 1,
+      "e": "IIQ queues failed provisioning requests and retries them based on configuration. Requests aren't permanently lost on transient failures. The identity isn't affected by a connector outage. Other provisioning operations to different applications continue independently."
+    },
+    {
+      "d": 7,
+      "q": "What are the pre-defined lifecycle event types available in IdentityIQ?",
+      "o": [
+        "Login, Logout, Password Change, and Account Lock",
+        "Only Joiner and Leaver",
+        "Create, Read, Update, and Delete",
+        "Joiner, Mover (attribute change), Leaver, and Manager Transfer"
+      ],
+      "a": 3,
+      "e": "IIQ includes pre-defined lifecycle events for Joiner (new identity), Leaver (terminated identity), Mover/Attribute Change (identity attribute changes), and Manager Transfer (manager changes). It's not limited to just Joiner and Leaver. CRUD operations are database concepts, not lifecycle events. Login/logout events are authentication events, not identity lifecycle events."
+    },
+    {
+      "d": 7,
+      "q": "An administrator needs to configure what happens when a provisioning request requires approval before execution. Where is this configured?",
+      "o": [
+        "In the identity cube extended attributes",
+        "In the application connector settings",
+        "In the database connection configuration",
+        "In the business process (workflow) associated with the provisioning request type"
+      ],
+      "a": 3,
+      "e": "Approval steps are defined within the business process (workflow) that handles the provisioning request. The workflow can include approval work items routed to managers or application owners. Connector settings handle technical connectivity. Database configuration is infrastructure. Extended attributes store identity data, not approval logic."
+    },
+    {
+      "d": 7,
+      "q": "What is the difference between direct provisioning and request-based provisioning in IdentityIQ?",
+      "o": [
+        "Direct provisioning only works for on-premise applications; request-based only works for cloud applications",
+        "Direct provisioning is faster because it skips all validation; request-based validates everything",
+        "Direct provisioning executes immediately from lifecycle events or identity refresh; request-based goes through an approval workflow first",
+        "There is no difference; they produce identical results through identical processes"
+      ],
+      "a": 2,
+      "e": "Direct provisioning (from lifecycle events, identity refresh, or certification remediation) executes without user-initiated requests. Request-based provisioning goes through the LCM portal with approval workflows. Both validate against policies. Both work with any application type. They differ in trigger mechanism and approval requirements, but both ultimately create provisioning plans."
+    },
+    {
+      "d": 7,
+      "q": "An organization configures IdentityIQ so that when a manager changes for an identity, a certification is automatically generated for the new manager. Which feature enables this?",
+      "o": [
+        "A Manager Transfer lifecycle event configured to trigger a certification business process",
+        "A scheduled quarterly manager certification campaign",
+        "A manual certification launched from the identity search page",
+        "A role assignment rule based on the manager attribute"
+      ],
+      "a": 0,
+      "e": "The Manager Transfer lifecycle event detects manager changes and can trigger a business process that generates a targeted certification for the new manager to review the transferred employee's access. Scheduled certifications run periodically, not on manager changes. Manual certifications require administrator action. Role assignment rules assign roles, not trigger certifications."
+    },
+    {
+      "d": 7,
+      "q": "What role does the provisioning broker play in IdentityIQ's provisioning architecture?",
+      "o": [
+        "It acts as a message queue between the UI and the database",
+        "It receives provisioning plans and routes them to the appropriate connectors for execution on target applications",
+        "It provides the user interface for access request submission",
+        "It generates reports on provisioning activity"
+      ],
+      "a": 1,
+      "e": "The provisioning broker is the central component that receives provisioning plans from workflows and other sources, then routes the account operations to the correct application connectors for execution. It's not a message queue. The UI is separate from the provisioning engine. Reporting is handled by the report framework."
+    },
+    {
+      "d": 7,
+      "q": "An employee requests access to an application through the LCM portal. The request is approved, but the account creation fails on the target application. Where can the administrator track this failure?",
+      "o": [
+        "In the certification campaign results",
+        "Only in the target application's own logs",
+        "In the Identity Request object and task results, which show the provisioning status and any errors",
+        "In the identity cube's extended attributes"
+      ],
+      "a": 2,
+      "e": "Identity Requests track the full lifecycle of access requests including approval status and provisioning results with error details. Target application logs may have additional detail but aren't the primary IIQ tracking mechanism. Certification results track review decisions, not provisioning failures. Extended attributes store identity data, not request status."
+    },
+    {
+      "d": 7,
+      "q": "What is the purpose of the Manage Passwords QuickLink in Lifecycle Manager?",
+      "o": [
+        "It generates a report of all password expiration dates",
+        "It configures the password complexity policy for all applications",
+        "It allows users or helpdesk staff to reset or change passwords on target application accounts through IIQ",
+        "It creates new identity records in the system"
+      ],
+      "a": 2,
+      "e": "The Manage Passwords QuickLink provides self-service and delegated password management capabilities, allowing password resets and changes on target systems through IIQ. Password policies are configured separately. Password reports are in the reporting module. Identity creation is handled by Joiner events or the Create Identity QuickLink."
+    },
+    {
+      "d": 7,
+      "q": "When configuring Lifecycle Manager, what are QuickLink populations used for?",
+      "o": [
+        "To pre-populate form fields when creating new identities",
+        "To define which groups of users can see and use specific QuickLinks in the IIQ interface",
+        "To define the target population for certification campaigns",
+        "To specify which identities should be included in role mining"
+      ],
+      "a": 1,
+      "e": "QuickLink populations control visibility and access to QuickLinks based on identity attributes or group membership, ensuring users only see the self-service options relevant to their role. They don't pre-populate forms. Certification targets are configured on campaigns. Role mining populations are configured separately."
+    },
+    {
+      "d": 7,
+      "q": "An organization needs provisioning to create accounts with specific default values (like home directory path and login shell) when onboarding employees to a Linux system. Where are these defaults configured?",
+      "o": [
+        "In the identity cube's standard attributes",
+        "In the provisioning policy on the application object, which defines default attribute values for new accounts",
+        "In the global SystemConfiguration object",
+        "In the lifecycle event's trigger configuration"
+      ],
+      "a": 1,
+      "e": "Provisioning policies on the application object define default values and rules for account creation, including default home directory, shell, and other application-specific attributes. Identity attributes store person data, not application account defaults. SystemConfiguration holds global settings. Lifecycle event triggers define when events fire, not provisioning defaults."
+    },
+    {
+      "d": 7,
+      "q": "What happens in IdentityIQ when a Leaver lifecycle event fires for a terminated employee?",
+      "o": [
+        "The identity is immediately and permanently purged from the IIQ database",
+        "A business process executes that typically creates a provisioning plan to disable or remove all of the identity's application accounts",
+        "Only the identity's password is changed across all applications",
+        "The identity's manager receives a certification to review the departing employee's access before any action is taken"
+      ],
+      "a": 1,
+      "e": "The Leaver business process typically generates a provisioning plan to disable (or delete) all application accounts for the terminated identity. IIQ doesn't permanently purge identities immediately; they're retained for audit purposes. Password changes alone don't constitute proper offboarding. While manager review might be part of a custom process, the default Leaver event directly disables accounts without waiting for certification."
+    },
+    {
+      "d": 8,
+      "q": "An organization needs to verify that all employees have appropriate access to applications on a quarterly basis. Which IdentityIQ feature supports this?",
+      "o": [
+        "Password rotation policies",
+        "Ad-hoc aggregation tasks",
+        "Role mining operations",
+        "Scheduled periodic certification campaigns"
+      ],
+      "a": 3,
+      "e": "Periodic certification campaigns can be scheduled to run quarterly (or any interval), generating access reviews for designated certifiers to verify access appropriateness. Aggregation reads data from applications but doesn't verify appropriateness. Role mining discovers role patterns. Password rotation manages credentials, not access appropriateness."
+    },
+    {
+      "d": 8,
+      "q": "Which certification type in IdentityIQ asks managers to review and validate their direct reports' application access?",
+      "o": [
+        "Manager Certification",
+        "Application Owner Certification",
+        "Entitlement Owner Certification",
+        "Role Composition Certification"
+      ],
+      "a": 0,
+      "e": "Manager Certification creates access reviews for managers to certify their direct reports' access. Application Owner Certification asks application owners to review all users of their application. Entitlement Owner Certification asks entitlement owners to review who holds specific entitlements. Role Composition Certification reviews the entitlements within a role definition."
+    },
+    {
+      "d": 8,
+      "q": "A large organization has an Active Directory with 50,000 users. Why might a Manager Certification be preferred over an Application Owner Certification for this application?",
+      "o": [
+        "Manager Certification doesn't require any configuration",
+        "Manager Certification is always faster than Application Owner Certification",
+        "Application Owner Certification cannot be used with Active Directory",
+        "Manager Certification distributes the review across many managers; Application Owner Certification would burden a single person with 50,000 users to review"
+      ],
+      "a": 3,
+      "e": "Manager Certification distributes the workload across many managers, each reviewing only their direct reports. Application Owner Certification would force the AD owner to review all 50,000 users, which is impractical. Speed depends on reviewer responsiveness, not type. Application Owner Certification works with any application type. All certification types require configuration."
+    },
+    {
+      "d": 8,
+      "q": "During an access review, a certifier decides that an employee should no longer have a specific entitlement. What action does the certifier take?",
+      "o": [
+        "Revoke the entitlement, which triggers a remediation action to remove it from the target application",
+        "Delete the employee's identity from IdentityIQ",
+        "Disable the entire application for all users",
+        "Contact the application vendor to remove the access manually"
+      ],
+      "a": 0,
+      "e": "Revoking an entitlement in a certification triggers remediation, which can be automated (via provisioning) or manual (via a work item to the application owner). The identity isn't deleted for a single entitlement revocation. The application isn't disabled for one user's access change. IIQ handles remediation internally, not through vendor contact."
+    },
+    {
+      "d": 8,
+      "q": "What is the challenge period in an IdentityIQ certification?",
+      "o": [
+        "The time required to configure a new certification",
+        "The time allocated for the certifier to complete their review",
+        "The period between certification campaigns",
+        "A window where users whose access was revoked can contest the decision with justification before it becomes final"
+      ],
+      "a": 3,
+      "e": "The challenge period allows affected users to respond to revocation decisions with comments explaining why they need the access, giving certifiers a chance to reconsider. It's not the review completion window (that's the active period). It's not the gap between campaigns. It's not a configuration period."
+    },
+    {
+      "d": 8,
+      "q": "What is the difference between the active period and the revocation period in an IdentityIQ certification?",
+      "o": [
+        "The active period handles approvals; the revocation period handles new requests",
+        "The active period is for managers; the revocation period is for administrators",
+        "The active period is when certifiers make decisions; the revocation period is when revocation decisions are executed and tracked",
+        "There is no difference; they are the same phase"
+      ],
+      "a": 2,
+      "e": "During the active period, certifiers review items and make approve/revoke decisions. During the revocation period (after sign-off), the revocation decisions are processed and remediation is tracked. Both periods involve the same certifiers. The revocation period doesn't handle new requests. They are distinct phases in the certification lifecycle."
+    },
+    {
+      "d": 8,
+      "q": "An IdentityIQ certification is configured with automatic remediation. What happens when a certifier revokes an entitlement?",
+      "o": [
+        "The revocation decision is stored but no action is taken until the next aggregation",
+        "The entitlement is only flagged for manual removal by the helpdesk",
+        "IdentityIQ automatically generates a provisioning request to remove the entitlement from the target application",
+        "The certifier must manually log into the target application and remove the access"
+      ],
+      "a": 2,
+      "e": "With automatic remediation enabled, IIQ creates and executes a provisioning plan to remove the revoked entitlement from the target application without manual intervention. Manual work items are used when automatic provisioning isn't available. Revocations aren't deferred to aggregation. The certifier doesn't need to access target applications directly."
+    },
+    {
+      "d": 8,
+      "q": "What is an Entitlement Owner Certification in IdentityIQ?",
+      "o": [
+        "A certification that verifies entitlement definitions are correct",
+        "A certification where managers review all entitlements their reports hold",
+        "A certification where entitlement owners review all identities who hold their specific entitlements",
+        "A certification that checks if entitlements exist in target applications"
+      ],
+      "a": 2,
+      "e": "Entitlement Owner Certification asks the designated owner of each entitlement to review and certify all identities who hold that entitlement. Manager certifications have managers review their reports. Entitlement definition review is done through Role Composition Certification. Entitlement existence is verified through aggregation, not certification."
+    },
+    {
+      "d": 8,
+      "q": "An organization wants to launch a one-time certification for a specific group of high-risk users identified through a search. Which certification type should they use?",
+      "o": [
+        "Targeted (Identity) Certification launched from the identity search results",
+        "A scheduled Manager Certification for all managers",
+        "An Application Owner Certification for all applications",
+        "A Role Membership Certification for all roles"
+      ],
+      "a": 0,
+      "e": "Targeted Certifications can be launched ad-hoc from identity search results, risk score pages, or policy violation pages for specific identities. A full Manager Certification would be too broad. Application Owner and Role Membership certifications address different scopes than a specific set of high-risk identities."
+    },
+    {
+      "d": 8,
+      "q": "What is the purpose of a Role Composition Certification in IdentityIQ?",
+      "o": [
+        "To verify that the entitlements defined within a role are still correct and appropriate",
+        "To certify that the right people are assigned to the role",
+        "To create new roles based on current access patterns",
+        "To remove roles that have no members"
+      ],
+      "a": 0,
+      "e": "Role Composition Certification reviews the entitlements and permissions that make up a role's definition to ensure they're still valid and appropriate. Certifying role membership is done through Role Membership Certification. Creating roles is done through role mining or modeling. Removing empty roles is an administrative task, not a certification type."
+    },
+    {
+      "d": 8,
+      "q": "How can certifications be triggered automatically by identity changes in IdentityIQ?",
+      "o": [
+        "By configuring the database to send certification triggers",
+        "Certifications can only be triggered manually by administrators",
+        "By setting up a continuous aggregation task that generates certifications",
+        "By configuring event-based certifications linked to lifecycle events (e.g., manager change triggers a certification)"
+      ],
+      "a": 3,
+      "e": "Event-based certifications can be triggered automatically by lifecycle events like manager changes, generating targeted reviews when relevant identity changes occur. Certifications can be scheduled, event-triggered, or manually launched. Aggregation reads data but doesn't directly trigger certifications. Database-level triggers are not the IIQ mechanism for this."
+    },
+    {
+      "d": 8,
+      "q": "A certifier is reviewing access and sees an item marked as an 'exception.' What does this indicate?",
+      "o": [
+        "The entitlement is scheduled for automatic removal",
+        "The entitlement was recently added and hasn't been reviewed before",
+        "The entitlement was previously flagged as a policy violation but was allowed with a documented exception",
+        "The entitlement belongs to a different application than expected"
+      ],
+      "a": 2,
+      "e": "An exception in the certification context indicates a policy violation that was acknowledged and allowed with documented justification. It doesn't mean it's new access. It doesn't mean it's scheduled for removal. It's not about application misattribution."
+    },
+    {
+      "d": 8,
+      "q": "When a certification campaign is completed (signed off), what happens to items that the certifier did not take action on?",
+      "o": [
+        "They are permanently removed from the system without review",
+        "They can be automatically approved, revoked, or reassigned based on the certification's configuration for unactioned items",
+        "They are always automatically approved regardless of configuration",
+        "They cause the entire certification to fail and restart"
+      ],
+      "a": 1,
+      "e": "The behavior for unactioned items is configurable: they can be auto-approved, auto-revoked, escalated to another reviewer, or the certification can remain open. They aren't permanently removed. The behavior depends on configuration, not a fixed default. Unactioned items don't cause certification restarts."
+    },
+    {
+      "d": 8,
+      "q": "What information does a certifier typically see when reviewing an identity's access in a Manager Certification?",
+      "o": [
+        "The identity's application accounts, entitlements, roles, and any policy violations",
+        "Only the identity's name and department",
+        "Only password expiration dates for each application",
+        "Only the roles assigned, with no entitlement detail"
+      ],
+      "a": 0,
+      "e": "Certifiers see comprehensive access information including accounts, entitlements, roles, and policy violations to make informed decisions. The review isn't limited to basic demographic data. Password information isn't the focus. Both roles and detailed entitlements are typically visible to provide full context."
+    },
+    {
+      "d": 8,
+      "q": "An organization has both automated and non-automated applications. How does IdentityIQ handle revocations differently for these?",
+      "o": [
+        "All revocations are always manual regardless of application capabilities",
+        "For automated applications, IIQ provisions the revocation directly; for non-automated applications, IIQ creates manual work items for the application owner or revoker",
+        "All revocations are always automatic regardless of application capabilities",
+        "Non-automated applications cannot participate in certifications"
+      ],
+      "a": 1,
+      "e": "IIQ adapts remediation based on application capabilities: automated applications get direct provisioning, while non-automated applications get manual work items assigned to the designated revoker or application owner. The approach isn't one-size-fits-all. Non-automated applications fully participate in certifications; only the remediation method differs."
+    },
+    {
+      "d": 8,
+      "q": "What is the purpose of certification reminders and escalations in IdentityIQ?",
+      "o": [
+        "To remind users about upcoming password expirations",
+        "To notify certifiers who haven't completed their reviews and escalate overdue reviews to their managers if necessary",
+        "To escalate provisioning failures to the helpdesk",
+        "To notify application owners about scheduled aggregation tasks"
+      ],
+      "a": 1,
+      "e": "Certification reminders prompt certifiers who haven't completed their access reviews, and escalations redirect overdue reviews to designated escalation targets (like the certifier's manager). They aren't about passwords. They aren't about provisioning. They aren't about aggregation."
+    },
+    {
+      "d": 8,
+      "q": "A compliance officer wants to generate evidence that all critical application access has been reviewed and certified in the past year. Where do they find this in IdentityIQ?",
+      "o": [
+        "In the identity cube export files",
+        "In the application connector debug logs",
+        "In the certification reports and audit history, which show campaign completion, decisions made, and remediation status",
+        "In the provisioning task results"
+      ],
+      "a": 2,
+      "e": "Certification reports and audit logs provide complete evidence of reviews: who reviewed what, decisions made, remediations executed, and completion status. Connector logs show technical integration details. Identity exports show current state, not review history. Provisioning results show account changes, not certification evidence."
+    },
+    {
+      "d": 8,
+      "q": "What is an Advanced Certification in IdentityIQ used for?",
+      "o": [
+        "To certify that the IdentityIQ database is properly configured",
+        "To certify the most privileged administrator accounts only",
+        "To perform a technical health check on the IdentityIQ system",
+        "To certify access for a specific population of identities based on custom criteria like region, department, or risk level"
+      ],
+      "a": 3,
+      "e": "Advanced Certifications allow flexible scoping using populations and groups to target specific sets of identities based on any criteria (location, department, risk score, etc.). They aren't limited to admins. They don't perform system health checks. They don't check database configuration."
+    },
+    {
+      "d": 8,
+      "q": "After a certifier revokes access in an access review, the affected user disagrees with the decision. What IdentityIQ feature allows the user to respond?",
+      "o": [
+        "The user can directly override the certifier's decision in the portal",
+        "The challenge period, during which users can contest revocation decisions with comments and justification",
+        "The user must create a new access request to regain the revoked access",
+        "There is no mechanism for users to respond to revocation decisions"
+      ],
+      "a": 1,
+      "e": "If a challenge period is configured, users whose access is revoked receive notification and can submit comments explaining why they need the access. The certifier can then reconsider. Users cannot override certifier decisions. While users could submit a new request afterward, the challenge period is the built-in mechanism for contesting decisions during the certification lifecycle."
+    },
+    {
+      "d": 8,
+      "q": "What happens when an identity has no reviewable items in a Manager Certification?",
+      "o": [
+        "The entire certification campaign fails",
+        "The access review for that identity may be automatically completed or excluded depending on configuration",
+        "The identity is automatically deleted from IdentityIQ",
+        "The manager receives an error and must contact IT support"
+      ],
+      "a": 1,
+      "e": "If an identity has no reviewable items (no accounts, entitlements, or roles), the access review can be auto-completed or the identity excluded from the campaign based on configuration. It doesn't fail the campaign. The identity isn't deleted. It's handled gracefully without requiring IT intervention."
+    },
+    {
+      "d": 9,
+      "q": "An administrator needs to find all application accounts in IdentityIQ that are not correlated to any identity. Which report should they use?",
+      "o": [
+        "The Certification Status Report",
+        "The Identity Risk Score Report",
+        "The Role Membership Report",
+        "The Uncorrelated Accounts Report"
+      ],
+      "a": 3,
+      "e": "The Uncorrelated Accounts Report lists all application accounts that couldn't be matched to an identity during correlation, helping identify orphan or unmanaged accounts. The Risk Score Report shows identity-level risk. The Role Membership Report shows role assignments. The Certification Status Report shows certification completion."
+    },
+    {
+      "d": 9,
+      "q": "What are the three main categories of reports in IdentityIQ?",
+      "o": [
+        "Detailed reports, Archived reports, and Summary reports",
+        "Identity reports, Application reports, and Compliance reports",
+        "Daily reports, Weekly reports, and Monthly reports",
+        "Input reports, Processing reports, and Output reports"
+      ],
+      "a": 0,
+      "e": "IIQ organizes reports into Detailed (interactive tables/grids), Archived (formatted for audit dissemination, typically exported to PDF), and Summary (high-level overviews). The categorization isn't by subject area, frequency, or processing stage."
+    },
+    {
+      "d": 9,
+      "q": "An administrator notices that an aggregation task completed but took significantly longer than usual. Where should they look first for diagnostic information?",
+      "o": [
+        "The identity cube attributes for each affected identity",
+        "The task results page, which shows execution time, record counts, errors, and warnings for the completed task",
+        "The certification campaign history",
+        "The role hierarchy definition"
+      ],
+      "a": 1,
+      "e": "Task results provide detailed execution information including timing, processed records, errors, and warnings that help diagnose performance issues. Identity attributes don't contain task performance data. Certification history is unrelated to aggregation performance. Role hierarchy doesn't affect aggregation timing diagnostics."
+    },
+    {
+      "d": 9,
+      "q": "What is the Environment Information Report in IdentityIQ used for?",
+      "o": [
+        "To list all environment variables on the application server",
+        "To show the physical server room environment (temperature, humidity)",
+        "To display statistics about the IIQ deployment including object counts, database type, version info, and system configuration",
+        "To compare development and production environment configurations"
+      ],
+      "a": 2,
+      "e": "The Environment Information Report provides counts of IIQ objects (identities, applications, accounts, roles, etc.) plus technical details like database type, version, JDBC drivers, and IIQ version. It doesn't monitor physical infrastructure. It doesn't list OS environment variables. It doesn't compare environments."
+    },
+    {
+      "d": 9,
+      "q": "A compliance auditor requests a report showing all policy violations and their remediation status. Which area of IdentityIQ provides this?",
+      "o": [
+        "The policy violation reports under the Reports section, which track violations, resolutions, and exceptions",
+        "The aggregation task log files",
+        "The application schema configuration pages",
+        "The identity cube search results"
+      ],
+      "a": 0,
+      "e": "Policy violation reports show all detected violations, their current status (open, remediated, exception), and resolution details. Aggregation logs show data import activity. Application schema pages show technical configuration. Identity search shows individual identity data, not cross-organizational compliance tracking."
+    },
+    {
+      "d": 9,
+      "q": "An administrator is troubleshooting why a specific identity's role wasn't assigned even though the assignment rule should match. What should they check?",
+      "o": [
+        "Verify the assignment rule logic matches the identity's current attributes, and check the identity refresh task results for errors",
+        "Restart the IdentityIQ application server",
+        "Delete and recreate the role from scratch",
+        "Run an entitlement aggregation on all applications"
+      ],
+      "a": 0,
+      "e": "Role assignment happens during identity refresh, so checking the rule logic against the identity's actual attributes and reviewing refresh task results for errors is the correct diagnostic approach. Server restart is unlikely to fix a logic issue. Recreating the role is premature without diagnosis. Entitlement aggregation reads application data, not role assignment logic."
+    },
+    {
+      "d": 9,
+      "q": "In IdentityIQ, reports are implemented as a specialized type of which object?",
+      "o": [
+        "TaskDefinition, with report results stored as TaskResult objects",
+        "Identity objects with report attributes",
+        "Application objects with reporting connectors",
+        "Bundle objects with report profiles"
+      ],
+      "a": 0,
+      "e": "In IIQ's object model, reports are implemented as TaskDefinition objects with a report type designation, and their results are stored as TaskResult objects. They aren't identity objects. They aren't application objects. They aren't Bundle (role) objects."
+    },
+    {
+      "d": 9,
+      "q": "An administrator wants to create a customized version of a standard report with pre-set filter parameters they can reuse. What should they create?",
+      "o": [
+        "A database stored procedure that generates the data",
+        "A new Java class that extends the report framework",
+        "A customized report instance (saved on the My Reports tab) with pre-specified parameters",
+        "A custom XML TaskDefinition imported through the console"
+      ],
+      "a": 2,
+      "e": "Customized report instances allow saving pre-specified parameter values for standard reports, appearing on the My Reports tab for easy reuse. Writing new Java classes is for custom reports, not parameter customization. Database procedures bypass IIQ's reporting framework. Custom TaskDefinitions are for entirely new report types, not parameter presets."
+    },
+    {
+      "d": 9,
+      "q": "An identity refresh task fails with errors. What is the most useful diagnostic information to examine?",
+      "o": [
+        "The password policy settings",
+        "The certification campaign schedule",
+        "The application's provisioning policy configuration",
+        "The task result details showing which identities failed, the error messages, and the stack traces"
+      ],
+      "a": 3,
+      "e": "Task results contain detailed error information including which identities caused failures, error messages, and technical stack traces for diagnosis. Certification schedules are unrelated. Provisioning policies affect account creation, not refresh. Password policies are unrelated to identity refresh failures."
+    },
+    {
+      "d": 9,
+      "q": "How can an administrator schedule a report to run automatically on a recurring basis in IdentityIQ?",
+      "o": [
+        "Set up an external cron job to call the IIQ REST API",
+        "Reports can only be run manually on demand in IdentityIQ",
+        "Configure the report with a schedule (daily, weekly, monthly, etc.) through the report scheduling interface",
+        "Configure the database to execute the report query on a schedule"
+      ],
+      "a": 2,
+      "e": "IIQ provides built-in report scheduling that allows reports to run automatically on configurable intervals (daily, weekly, monthly, etc.). Reports aren't limited to manual execution. External scheduling isn't required. Database-level scheduling bypasses IIQ's reporting framework."
+    },
+    {
+      "d": 9,
+      "q": "An administrator is troubleshooting why accounts from a connected application aren't appearing after aggregation. The task result shows success with zero records. What should they investigate?",
+      "o": [
+        "The role assignment rules for the application",
+        "The certification campaign schedule for the application",
+        "The connector configuration including search filters, base DN, and credentials, which may be too restrictive or incorrect",
+        "The email notification templates"
+      ],
+      "a": 2,
+      "e": "Zero records with a successful task typically indicates overly restrictive search filters, an incorrect base DN, or credential issues that allow connection but return no data. Certification schedules don't affect aggregation. Role assignment rules don't affect data reading. Email templates are unrelated to aggregation results."
+    },
+    {
+      "d": 9,
+      "q": "What is the Debug page in IdentityIQ used for?",
+      "o": [
+        "To run unit tests on custom connector code",
+        "To debug JavaScript errors in the IIQ web interface",
+        "To view, search, and edit the underlying XML objects stored in the IdentityIQ database for troubleshooting and advanced configuration",
+        "To monitor CPU and memory usage on the application server"
+      ],
+      "a": 2,
+      "e": "The Debug page (accessible to system administrators) provides an object browser for viewing and editing the raw XML objects in the IIQ database, useful for troubleshooting and advanced configuration. It doesn't debug client-side JavaScript. It doesn't run unit tests. It doesn't monitor system resources."
+    },
+    {
+      "d": 9,
+      "q": "An organization wants to track how many identities, accounts, roles, and certifications exist in their IdentityIQ deployment. Which report provides this overview?",
+      "o": [
+        "The Application Owner Certification Report",
+        "The Uncorrelated Accounts Report",
+        "The Identity Risk Score Report",
+        "The Environment Information Report, which shows object count statistics"
+      ],
+      "a": 3,
+      "e": "The Environment Information Report provides comprehensive statistics about the IIQ deployment including counts of identities, accounts, applications, roles, certifications, workgroups, and more. The other reports focus on specific areas (uncorrelated accounts, risk scores, certifications) rather than overall deployment statistics."
+    },
+    {
+      "d": 9,
+      "q": "A provisioning request was submitted but the target account was never created. How can the administrator trace what happened?",
+      "o": [
+        "Review the role composition certification",
+        "Check the certification campaign results",
+        "Check the Identity Request object for the request status, provisioning plan details, and any error messages from the connector",
+        "Look at the identity's login history"
+      ],
+      "a": 2,
+      "e": "Identity Request objects track the complete lifecycle of provisioning requests including approval status, provisioning plan content, connector responses, and error details. Certification results don't track provisioning requests. Role composition is about role definitions. Login history is unrelated to provisioning failures."
+    },
+    {
+      "d": 9,
+      "q": "An administrator needs to export report data for analysis in a spreadsheet application. Which export formats does IdentityIQ support for reports?",
+      "o": [
+        "CSV for detailed/grid reports and PDF for archived/formatted reports",
+        "Only PDF format is available",
+        "Only XML export is supported",
+        "Reports cannot be exported from IdentityIQ"
+      ],
+      "a": 0,
+      "e": "IIQ supports CSV export for detailed/grid reports (ideal for spreadsheet analysis) and PDF export for archived reports (ideal for audit distribution). Export isn't limited to a single format. XML isn't the primary export format for reports. IIQ does support report export."
+    },
+    {
+      "d": 9,
+      "q": "What should an administrator check when a lifecycle event isn't firing as expected for new identities?",
+      "o": [
+        "Verify the lifecycle event is enabled, the trigger conditions match the identity attributes, and the authoritative source aggregation is detecting the new identities",
+        "Check if the user has logged into the IIQ portal",
+        "Review the certification campaign configuration",
+        "Inspect the application's provisioning policy"
+      ],
+      "a": 0,
+      "e": "Lifecycle events must be enabled (they're disabled by default), their trigger conditions must match the identity changes being detected, and the authoritative source aggregation must be running to detect new identities. Portal login is unrelated. Certification configuration doesn't affect lifecycle events. Provisioning policies affect account creation, not event triggering."
+    },
+    {
+      "d": 9,
+      "q": "How does IdentityIQ's audit search functionality help with compliance?",
+      "o": [
+        "It searches for auditors' contact information in the identity database",
+        "It allows searching through audit events to find specific actions, changes, and decisions made in the system for compliance evidence",
+        "It audits the search functionality itself for performance issues",
+        "It only searches for financial transactions in connected applications"
+      ],
+      "a": 1,
+      "e": "Audit search lets administrators and auditors find specific system events (access changes, certification decisions, policy violations, provisioning actions) to produce compliance evidence. It doesn't search for people. It doesn't audit its own performance. It covers all IIQ audit events, not just financial transactions."
+    },
+    {
+      "d": 9,
+      "q": "An aggregation task shows warnings about 'duplicate account' detections. What does this typically mean?",
+      "o": [
+        "Multiple accounts in the source application matched the same correlation criteria, creating ambiguity about which identity they belong to",
+        "The application has been onboarded twice in IdentityIQ",
+        "The database has corrupted records that need repair",
+        "The IdentityIQ license has expired"
+      ],
+      "a": 0,
+      "e": "Duplicate account warnings occur when the connector reads multiple accounts that match the same correlation criteria, making it ambiguous which identity they should link to. This isn't about double-onboarding. It doesn't indicate database corruption. It's unrelated to licensing."
+    },
+    {
+      "d": 9,
+      "q": "What is the purpose of the Activity Search feature in IdentityIQ?",
+      "o": [
+        "To search for physical activities like badge swipes or door access",
+        "To search for and review user activity events tracked across connected applications",
+        "To find the most active roles in the system by assignment count",
+        "To search for application server activity logs"
+      ],
+      "a": 1,
+      "e": "Activity Search allows searching through user activity data collected from connected applications, helping with investigations and compliance monitoring. It doesn't track physical security events. It doesn't measure role popularity. Application server logs are separate from IIQ's activity tracking."
+    },
+    {
+      "d": 9,
+      "q": "An administrator is asked to demonstrate the overall compliance posture of the organization to executive leadership. Which IdentityIQ capability provides this high-level view?",
+      "o": [
+        "The connector configuration test results",
+        "The Debug page showing raw XML objects",
+        "The application schema discovery page",
+        "The compliance dashboard showing policy violations, certification completion rates, and risk metrics"
+      ],
+      "a": 3,
+      "e": "The compliance dashboard provides an executive-level overview of the organization's compliance posture including policy violation trends, certification completion percentages, and risk distributions. The Debug page is for technical troubleshooting. Schema discovery is technical. Connector tests verify connectivity, not compliance posture."
+    },
+    {
+      "d": 7,
+      "q": "A company needs to automatically disable accounts when an employee's termination date passes. Which IdentityIQ feature should be configured?",
+      "o": [
+        "Identity trigger rule on termination date attribute",
+        "Scheduled certification campaign",
+        "Provisioning policy with sunset clause",
+        "Activity-based correlation rule"
+      ],
+      "a": 0,
+      "e": "Identity trigger rules fire when identity attributes change. A trigger on the termination date attribute can automatically launch a workflow to disable accounts when the date arrives. Certifications are periodic reviews, not real-time triggers. Provisioning policies define how accounts are created, and correlation rules map accounts to identities."
     }
   ],
-  "flashcards": []
+  "flashcards": [
+    {
+      "d": 1,
+      "t": "Separation of Duties (SoD)",
+      "def": "A governance control that prevents a single person from having conflicting access that could enable fraud, such as both creating and approving transactions."
+    },
+    {
+      "d": 1,
+      "t": "Access Creep",
+      "def": "The gradual accumulation of access rights over time, typically as users change roles without having previous access removed."
+    },
+    {
+      "d": 1,
+      "t": "Birthright Provisioning",
+      "def": "Automatically granting baseline application access to new identities based on their attributes (department, job title) without requiring an explicit request."
+    },
+    {
+      "d": 1,
+      "t": "Least Privilege",
+      "def": "The principle that users should be granted only the minimum access necessary to perform their job functions."
+    },
+    {
+      "d": 1,
+      "t": "Orphan Account",
+      "def": "An application account that cannot be linked to any active identity in the governance system, often from former employees whose access wasn't deprovisioned."
+    },
+    {
+      "d": 1,
+      "t": "Authoritative Source",
+      "def": "The trusted system (typically HR) that provides canonical identity data such as names, departments, hire dates, and termination status."
+    },
+    {
+      "d": 2,
+      "t": "SailPoint XML Objects",
+      "def": "The XML-based configuration artifacts in IdentityIQ used to store rules, policies, workflows, and other configuration that can be imported, exported, and version-controlled."
+    },
+    {
+      "d": 2,
+      "t": "Bundle (Role)",
+      "def": "The internal XML object type name in IdentityIQ for what is displayed as a 'Role' in the UI. Bundle is the technical name; Role is the business name."
+    },
+    {
+      "d": 2,
+      "t": "SystemConfiguration",
+      "def": "A global IdentityIQ object that stores deployment-wide settings like email configuration, feature flags, and default behaviors."
+    },
+    {
+      "d": 2,
+      "t": "Plugin Framework",
+      "def": "An IdentityIQ extension mechanism that allows developers to add custom REST endpoints, UI pages, and service executors packaged as installable plugins."
+    },
+    {
+      "d": 2,
+      "t": "Cloud Gateway (Virtual Appliance)",
+      "def": "A SailPoint component that acts as a secure relay between an on-premises IdentityIQ instance and cloud/SaaS applications without requiring inbound firewall rules."
+    },
+    {
+      "d": 2,
+      "t": "Accelerator Pack",
+      "def": "A package of pre-built IIQ configuration, workflows, lifecycle events, and best practices designed to speed up implementation."
+    },
+    {
+      "d": 3,
+      "t": "Identity Cube",
+      "def": "The central representation of a person in IdentityIQ, aggregating all their accounts, entitlements, roles, and attributes from across connected applications into one unified view."
+    },
+    {
+      "d": 3,
+      "t": "Link (Application Account)",
+      "def": "An application account that has been correlated to an identity in IdentityIQ. The Links section of an identity cube shows all associated application accounts."
+    },
+    {
+      "d": 3,
+      "t": "Correlation",
+      "def": "The process of matching application accounts to identities during aggregation, based on configured rules that compare account attributes to identity attributes."
+    },
+    {
+      "d": 3,
+      "t": "Identity Refresh",
+      "def": "A task that recalculates derived identity data including attribute mappings, role assignments, policy violations, and risk scores based on current aggregated data."
+    },
+    {
+      "d": 3,
+      "t": "Extended Attributes",
+      "def": "Custom identity attributes defined in the ObjectConfig that use a flexible storage mechanism, as opposed to standard attributes which have dedicated database columns."
+    },
+    {
+      "d": 3,
+      "t": "Account Aggregation vs. Entitlement Aggregation",
+      "def": "Account aggregation reads user accounts and their current assignments. Entitlement aggregation reads the catalog of available permissions (groups, roles) from an application."
+    },
+    {
+      "d": 4,
+      "t": "Application Schema",
+      "def": "Defines the structure of accounts and entitlements (attribute names, types, relationships) that IdentityIQ reads from a connected application."
+    },
+    {
+      "d": 4,
+      "t": "Delta (Incremental) Aggregation",
+      "def": "An aggregation mode that reads only accounts changed since the last run, reducing processing time compared to full aggregation."
+    },
+    {
+      "d": 4,
+      "t": "Provisioning Policy",
+      "def": "Rules on an application object defining default attribute values and behaviors when creating or modifying accounts (e.g., default home directory, naming convention)."
+    },
+    {
+      "d": 4,
+      "t": "Uncorrelated Account",
+      "def": "An application account that exists in the source system but could not be matched to any identity during the correlation process."
+    },
+    {
+      "d": 4,
+      "t": "Customization Rule",
+      "def": "A rule executed during aggregation to transform, filter, or enrich account data before IdentityIQ processes it."
+    },
+    {
+      "d": 4,
+      "t": "Schema Discovery",
+      "def": "The process of connecting to an application and automatically detecting available account and entitlement attributes to populate the application schema."
+    },
+    {
+      "d": 5,
+      "t": "Business Role",
+      "def": "A role representing a job function understood by business users (e.g., 'Accounts Payable Clerk'), typically containing IT roles or specific entitlements."
+    },
+    {
+      "d": 5,
+      "t": "IT Role",
+      "def": "A role that groups specific application entitlements at the technical level (e.g., 'SAP Finance Read Access'), often contained within business roles."
+    },
+    {
+      "d": 5,
+      "t": "Permitted vs. Required Role",
+      "def": "A permitted role can be requested by the parent role's members. A required role is automatically included (inherited) when the parent role is assigned."
+    },
+    {
+      "d": 5,
+      "t": "Role Mining",
+      "def": "The process of analyzing existing user-to-entitlement assignments to discover common access patterns that can be formalized as roles (bottom-up approach)."
+    },
+    {
+      "d": 5,
+      "t": "Detected vs. Assigned Role",
+      "def": "A detected role is found because the user already has all matching entitlements (bottom-up). An assigned role is explicitly granted, and IIQ provisions its entitlements (top-down)."
+    },
+    {
+      "d": 5,
+      "t": "Role Explosion",
+      "def": "The problem of having too many fine-grained roles, making governance unmanageable. Addressed through consolidation, hierarchy, and inheritance."
+    },
+    {
+      "d": 6,
+      "t": "SoD Policy",
+      "def": "A policy defining forbidden combinations of entitlements, roles, or permissions that represent compliance risks. Can be enforced preventively (blocking requests) or detected after the fact."
+    },
+    {
+      "d": 6,
+      "t": "Policy Violation Exception",
+      "def": "A documented allowance for a policy violation, including business justification and optional expiration date. When the exception expires, the violation is reactivated."
+    },
+    {
+      "d": 6,
+      "t": "Preventive vs. Detective Controls",
+      "def": "Preventive controls block violations before they occur (e.g., SoD check during access request). Detective controls find existing violations after the fact (e.g., policy scans, certifications)."
+    },
+    {
+      "d": 6,
+      "t": "Risk Scoring",
+      "def": "Assigning risk weights to entitlements and applications, then aggregating them into composite identity risk scores for prioritizing governance activities."
+    },
+    {
+      "d": 6,
+      "t": "Account Policy",
+      "def": "Rules governing account-level behaviors including password requirements, inactive account handling, and account attribute constraints."
+    },
+    {
+      "d": 6,
+      "t": "Compliance Dashboard",
+      "def": "An IIQ interface providing an overview of the organization's compliance posture: policy violations, certification completion, and risk metrics."
+    },
+    {
+      "d": 7,
+      "t": "Lifecycle Events",
+      "def": "Configurable events (Joiner, Mover, Leaver, Manager Transfer) that detect identity changes and trigger business processes containing provisioning actions."
+    },
+    {
+      "d": 7,
+      "t": "Provisioning Plan",
+      "def": "A structured IIQ object describing the desired account and entitlement changes (create, modify, delete, enable, disable) to execute on target applications."
+    },
+    {
+      "d": 7,
+      "t": "QuickLinks",
+      "def": "Self-service links on the IdentityIQ home page that provide access to common LCM functions like requesting access, managing passwords, and viewing approvals."
+    },
+    {
+      "d": 7,
+      "t": "QuickLink Populations",
+      "def": "Configuration that controls which groups of users can see and use specific QuickLinks, based on identity attributes or group membership."
+    },
+    {
+      "d": 7,
+      "t": "Provisioning Broker",
+      "def": "The central component that receives provisioning plans from workflows and routes account operations to the correct application connectors for execution."
+    },
+    {
+      "d": 7,
+      "t": "Request-Based vs. Direct Provisioning",
+      "def": "Request-based provisioning goes through the LCM portal with approval workflows. Direct provisioning executes immediately from lifecycle events or identity refresh without a user request."
+    },
+    {
+      "d": 8,
+      "t": "Manager Certification",
+      "def": "A certification type where managers review and validate their direct reports' application access, distributing the workload across the management chain."
+    },
+    {
+      "d": 8,
+      "t": "Application Owner Certification",
+      "def": "A certification where the application owner reviews all users who have access to their application. Best for smaller applications."
+    },
+    {
+      "d": 8,
+      "t": "Challenge Period",
+      "def": "A configurable window after revocation decisions where affected users can contest the decision with comments and justification before it becomes final."
+    },
+    {
+      "d": 8,
+      "t": "Revocation Phase",
+      "def": "The certification phase after sign-off where revocation decisions are processed: automated applications get direct provisioning; manual applications get work items."
+    },
+    {
+      "d": 8,
+      "t": "Targeted Certification",
+      "def": "A one-time certification launched ad-hoc from identity search results, risk score pages, or policy violation pages for specific identities."
+    },
+    {
+      "d": 8,
+      "t": "Event-Based Certification",
+      "def": "A certification automatically triggered by identity changes (like manager transfer), rather than running on a fixed schedule."
+    },
+    {
+      "d": 9,
+      "t": "Task Results",
+      "def": "Objects storing execution details for completed tasks including timing, record counts, errors, and warnings. Essential for diagnosing aggregation and refresh issues."
+    },
+    {
+      "d": 9,
+      "t": "Debug Page",
+      "def": "An admin interface for viewing and editing raw XML objects in the IIQ database, used for troubleshooting and advanced configuration."
+    },
+    {
+      "d": 9,
+      "t": "Uncorrelated Accounts Report",
+      "def": "A report listing application accounts that couldn't be matched to any identity during correlation, helping identify orphan or unmanaged accounts."
+    },
+    {
+      "d": 9,
+      "t": "Environment Information Report",
+      "def": "A report showing IIQ deployment statistics (object counts), database type/version, system configuration, and technical details about the running environment."
+    },
+    {
+      "d": 9,
+      "t": "Audit Search",
+      "def": "A feature for searching through audit events to find specific actions, changes, and decisions made in the system for compliance evidence."
+    },
+    {
+      "d": 9,
+      "t": "Identity Request",
+      "def": "An object tracking the complete lifecycle of a provisioning request including submission, approval status, provisioning plan, connector responses, and error details."
+    }
+  ]
 };
   </script>
   <script type="text/babel">
