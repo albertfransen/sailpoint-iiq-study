@@ -122,12 +122,12 @@
       "d": 1,
       "q": "An auditor asks the IT team to demonstrate that access to financial systems is reviewed regularly and compliant with SOX requirements. Which identity governance capability directly supports this?",
       "o": [
-        "Automated provisioning workflows",
         "Access certification campaigns",
+        "Automated provisioning workflows",
         "Password management policies",
         "Identity lifecycle management"
       ],
-      "a": 1,
+      "a": 0,
       "e": "Access certification campaigns (access reviews) allow managers and application owners to periodically attest that user access is appropriate, directly producing SOX compliance evidence. Automated provisioning handles granting and revoking access but doesn't produce compliance attestation records. Password policies address authentication security, not access appropriateness. Lifecycle management handles joiner/mover/leaver processes but doesn't generate the audit attestation that SOX requires."
     },
     {
@@ -146,12 +146,12 @@
       "d": 1,
       "q": "A company wants to automatically assign application access when an employee joins a specific department. Which identity governance process handles this?",
       "o": [
-        "Request-based provisioning",
         "Birthright provisioning",
+        "Request-based provisioning",
         "Access certification",
         "Entitlement remediation"
       ],
-      "a": 1,
+      "a": 0,
       "e": "Birthright provisioning automatically grants baseline access based on identity attributes like department or job title without requiring a request. Request-based provisioning requires the user or manager to initiate an access request. Access certification reviews existing access but doesn't assign new access. Entitlement remediation removes inappropriate access found during reviews."
     },
     {
@@ -218,12 +218,12 @@
       "d": 1,
       "q": "Which identity governance principle states that users should only be given the minimum access necessary to perform their job functions?",
       "o": [
-        "Need to know",
         "Least privilege",
+        "Need to know",
         "Zero trust",
         "Defense in depth"
       ],
-      "a": 1,
+      "a": 0,
       "e": "Least privilege is the principle that users should have only the minimum level of access required for their job duties. Need to know is related but specifically applies to data classification and information access rather than system entitlements broadly. Zero trust is a security architecture model that requires continuous verification, not specifically about minimizing privileges. Defense in depth is a layered security approach, not an access minimization principle."
     },
     {
@@ -254,12 +254,12 @@
       "d": 1,
       "q": "A company has deployed identity governance but finds that managers rubber-stamp all access reviews without actually evaluating them. What is the recommended approach to address this?",
       "o": [
-        "Increase the frequency of certification campaigns",
         "Implement risk-based certification with targeted reviews and escalation",
+        "Increase the frequency of certification campaigns",
         "Remove managers from the certification process entirely",
         "Reduce the number of entitlements visible in each review"
       ],
-      "a": 1,
+      "a": 0,
       "e": "Risk-based certification focuses reviewer attention on high-risk items and can escalate unreviewed items, making reviews more meaningful and manageable. Increasing frequency worsens reviewer fatigue and rubber-stamping. Removing managers eliminates valuable business context about whether access is appropriate. Reducing visible entitlements might hide items that actually need review."
     },
     {
@@ -276,15 +276,15 @@
     },
     {
       "d": 1,
-      "q": "What is the primary difference between detective and preventive governance controls?",
+      "q": "A compliance team wants to block users from receiving conflicting entitlements at request time, rather than discovering violations after the fact. Which governance approach should they implement?",
       "o": [
-        "Preventive controls block violations before they occur; detective controls identify violations after the fact",
-        "Preventive controls are automated; detective controls are always manual",
-        "Preventive controls apply to privileged users only; detective controls apply to all users",
-        "Preventive controls run in real-time only; detective controls are always batch-based"
+        "Preventive SoD policy that evaluates during access request approval",
+        "Detective SoD policy that runs during nightly scans",
+        "A quarterly manager certification campaign",
+        "An automated account deprovisioning workflow"
       ],
       "a": 0,
-      "e": "Preventive controls (like SoD policy checks during access requests) block violations proactively, while detective controls (like access certifications) find existing violations after they've occurred. Both types can be automated or manual. Both apply to all user types regardless of privilege level. Detective controls can also operate in near-real-time, not just batch mode."
+      "e": "Preventive controls block violations before they occur — in this case, an SoD check during the access request workflow rejects the request if it would create a conflict. Detective controls find violations after the fact (e.g., nightly scans). Certifications are periodic reviews. Deprovisioning removes existing access."
     },
     {
       "d": 1,
@@ -338,12 +338,12 @@
       "d": 2,
       "q": "A deployment engineer needs to understand the runtime environment for IdentityIQ. Which statement best describes how IdentityIQ is deployed?",
       "o": [
-        "As a standalone desktop application installed on each administrator's workstation",
         "As a Java web application (WAR file) on a Java application server like Tomcat",
+        "As a standalone desktop application installed on each administrator's workstation",
         "As a microservices-based container deployment requiring Kubernetes",
         "As a browser extension that connects directly to managed applications"
       ],
-      "a": 1,
+      "a": 0,
       "e": "IdentityIQ is packaged as a WAR file deployed on a Java application server like Apache Tomcat. It is not a desktop application; it provides a web-based UI accessed via browser. While containers can host Tomcat, IIQ is not natively microservices-based. It is a server-side application, not a browser extension."
     },
     {
@@ -362,12 +362,12 @@
       "d": 2,
       "q": "During installation, the IdentityIQ team must create the database schema. Which approach is used to initialize the IdentityIQ database?",
       "o": [
-        "Using the IdentityIQ Plugin Manager GUI",
         "Running the provided SQL schema scripts and using the iiq console import command",
+        "Using the IdentityIQ Plugin Manager GUI",
         "Running the SailPoint Cloud Gateway installer",
         "Calling the IdentityIQ REST API's schema endpoint"
       ],
-      "a": 1,
+      "a": 0,
       "e": "The iiq console and bundled SQL scripts create and update the database schema during installation and upgrades. The Plugin Manager manages plugins after deployment, not the core database schema. The Cloud Gateway connects SaaS apps, not database initialization. The REST API provides integration endpoints, not database schema management."
     },
     {
@@ -444,15 +444,15 @@
     },
     {
       "d": 2,
-      "q": "What is the role of ServiceDefinition XML objects in IdentityIQ?",
+      "q": "An administrator wants to schedule identity refreshes to run every night at 2 AM and aggregation tasks every 6 hours. Where in IIQ are these recurring background activities configured?",
       "o": [
-        "They store user password policies",
-        "They define REST API endpoints exposed by IdentityIQ",
-        "They define background services and their execution configurations within IdentityIQ",
-        "They configure the database connection pool settings"
+        "As ServiceDefinition objects that define background services and their schedules",
+        "In the SystemConfiguration object under global settings",
+        "In the application schema configuration for each source",
+        "As workflow steps in a master orchestration workflow"
       ],
-      "a": 2,
-      "e": "ServiceDefinition XML objects define background services (like the Task Scheduler service or Request Processor) and their configurations. REST API endpoints are defined by the application framework and plugins, not ServiceDefinitions. Password policies are stored as Policy objects. Database connection settings are configured in the application server's data source configuration files."
+      "a": 0,
+      "e": "ServiceDefinition objects define the background services that IdentityIQ runs on a schedule, including tasks like identity refresh, aggregation, and maintenance. SystemConfiguration holds global settings but not task schedules. Application schemas define data structure, not scheduling."
     },
     {
       "d": 2,
@@ -492,15 +492,15 @@
     },
     {
       "d": 2,
-      "q": "What is the purpose of the IdentityIQ Accelerator Pack?",
+      "q": "A consulting firm is implementing IdentityIQ for a new client and wants to avoid building common workflows, lifecycle events, and policies from scratch. Which SailPoint offering provides pre-built configurations to speed up deployment?",
       "o": [
-        "It provides pre-built configuration, workflows, and best practices to speed up deployment",
-        "It is a hardware acceleration module for improving aggregation performance",
-        "It is a separate SaaS product for cloud-only deployments",
-        "It is a testing framework for automated regression testing of IIQ"
+        "The IdentityIQ Plugin Framework",
+        "The Cloud Gateway Virtual Appliance",
+        "The IdentityIQ Accelerator Pack with pre-built best-practice configurations",
+        "The Rapid Setup wizard for basic deployments"
       ],
-      "a": 0,
-      "e": "The Accelerator Pack includes pre-built workflows, lifecycle events, roles, and configuration based on best practices to reduce implementation time. It is not hardware; it's a software configuration package. It's not a separate SaaS product; it enhances on-premise IIQ. It's not a testing framework; it's deployment-ready configuration."
+      "a": 2,
+      "e": "The Accelerator Pack provides pre-built workflows, lifecycle events, policies, and configurations based on SailPoint best practices, reducing implementation time. The Plugin Framework is for custom extensions. Cloud Gateway handles connectivity. Rapid Setup is a simplified configuration tool built into IIQ."
     },
     {
       "d": 2,
@@ -528,15 +528,15 @@
     },
     {
       "d": 2,
-      "q": "What is the purpose of the SystemConfiguration object in IdentityIQ?",
+      "q": "An administrator needs to change the global email notification settings and default identity refresh behavior for the entire IdentityIQ deployment. Which configuration object stores these deployment-wide settings?",
       "o": [
-        "It stores global settings that affect the behavior of the entire IdentityIQ deployment",
-        "It stores individual user preferences for the IdentityIQ UI",
-        "It defines the database schema version number",
-        "It holds the Java application server configuration"
+        "The Application object for the authoritative source",
+        "The TaskDefinition for the identity refresh task",
+        "The SystemConfiguration object, which stores global deployment settings",
+        "The UIConfig object that controls the user interface"
       ],
-      "a": 0,
-      "e": "The SystemConfiguration object stores global settings like email configuration, feature flags, and default behaviors affecting the entire IIQ instance. Individual user preferences are stored on Identity objects or UIPreferences. Database schema versions are tracked by upgrade scripts. Application server configuration is managed outside IIQ in the app server's own config files."
+      "a": 2,
+      "e": "The SystemConfiguration object stores deployment-wide settings including email configuration, default behaviors, and global parameters. Application objects are per-source. TaskDefinitions define individual tasks. UIConfig controls UI display options, not global system behavior."
     },
     {
       "d": 2,
@@ -612,15 +612,15 @@
     },
     {
       "d": 3,
-      "q": "What is the difference between a standard identity attribute and an extended identity attribute in IdentityIQ?",
+      "q": "A customer needs to store a custom \"cost center code\" attribute on each identity that doesn't exist in the default IIQ schema. How should this be implemented?",
       "o": [
-        "Standard attributes have dedicated database columns; extended attributes use a flexible storage mechanism",
-        "Standard attributes come from HR systems; extended attributes come from IT systems",
-        "Standard attributes are read-only; extended attributes are editable by end users",
-        "There is no difference; the terms are interchangeable"
+        "Add it as an extended identity attribute in the ObjectConfig, which uses flexible storage for custom attributes",
+        "Create a new database column in the spt_identity table manually",
+        "Store it only in the application schema and reference it indirectly",
+        "Create a custom XML object type to hold the attribute"
       ],
       "a": 0,
-      "e": "Standard attributes (firstname, lastname, email, manager) have dedicated columns in the spt_identity table for efficient querying. Extended attributes use a flexible storage mechanism (like CLOBs or configurable extended columns) for custom data. Both can come from any authoritative source. Both can be configured as read-only or editable. They are architecturally different in how they're stored and indexed."
+      "e": "Extended identity attributes are defined in the ObjectConfig and use a flexible storage mechanism (the spt_identity_extended table) for custom attributes beyond the standard schema. You should never modify IIQ database tables directly. Application schemas hold source data, not custom identity attributes."
     },
     {
       "d": 3,
@@ -732,15 +732,15 @@
     },
     {
       "d": 3,
-      "q": "What is the purpose of identity attribute mappings in IdentityIQ?",
+      "q": "An organization uses Workday as their authoritative HR source. They need the identity's \"department\" attribute to come from Workday's \"org_unit\" field. Where is this data flow configured?",
       "o": [
-        "To map physical office locations to identity records",
-        "To create a visual org chart of all identities in the organization",
-        "To define which application or source attributes populate which identity cube attributes",
-        "To define the relationship between roles and their contained entitlements"
+        "In the correlation configuration on the Workday application",
+        "In the identity attribute mapping configuration, which defines how identity attributes are sourced from applications",
+        "In the provisioning policy on the Workday application object",
+        "In a custom rule attached to the identity refresh task"
       ],
-      "a": 2,
-      "e": "Identity attribute mappings define the rules for how source attributes (like HR department, title, email) flow into identity cube attributes. They don't create org charts; manager relationships are just one attribute. They don't map physical locations unless specifically configured as an attribute. Role-to-entitlement relationships are defined in role (Bundle) profiles, not identity attribute mappings."
+      "a": 1,
+      "e": "Identity attribute mappings define which application attributes feed into which identity attributes, establishing the data flow from sources to the identity cube. Correlation matches accounts to identities (different purpose). Provisioning policies define outbound defaults. Custom rules could work but mappings are the standard approach."
     },
     {
       "d": 3,
@@ -840,15 +840,15 @@
     },
     {
       "d": 4,
-      "q": "What is the purpose of schema discovery during application onboarding in IdentityIQ?",
+      "q": "While onboarding a new Oracle database application, the administrator clicks \"Discover Schema\" in the application configuration. What does this operation accomplish?",
       "o": [
-        "To discover all identities that should exist in the system",
-        "To automatically detect the account and entitlement attributes available in the connected application",
-        "To find policy violations already present in the application",
-        "To identify roles that should be created from the application's data"
+        "It creates user accounts in the Oracle database for testing",
+        "It connects to Oracle and auto-detects the available account/entitlement attributes, types, and structure",
+        "It runs a full aggregation to import all accounts into IdentityIQ",
+        "It configures the correlation rules based on detected primary keys"
       ],
       "a": 1,
-      "e": "Schema discovery connects to the application and reads its metadata to determine what account and entitlement attributes are available, populating the application schema. It doesn't discover identities; that's aggregation and correlation. Policy violations are found by policy scans. Role discovery comes from role mining, not schema discovery."
+      "e": "Schema discovery connects to the target application and automatically detects available attributes, their data types, and structure for both accounts and entitlements. This saves the administrator from manually defining every attribute. It does not create accounts, run aggregation, or set up correlation."
     },
     {
       "d": 4,
@@ -1080,15 +1080,15 @@
     },
     {
       "d": 5,
-      "q": "What is a role profile in IdentityIQ?",
+      "q": "An IT role named \"SAP Finance User\" needs to include specific entitlement assignments on the SAP application. Where in the role definition are these application-specific entitlement requirements specified?",
       "o": [
-        "The set of entitlements (application permissions) that a role grants to its members",
-        "The demographic information stored on a role object",
-        "The list of users who currently hold the role",
-        "The approval workflow configuration for requesting the role"
+        "In the role's extended attributes section",
+        "In a separate policy object linked to the role",
+        "In the role profile, which defines the filter or specific entitlements required on a target application",
+        "In the role's approval workflow configuration"
       ],
-      "a": 0,
-      "e": "A role profile defines the specific application entitlements that are provisioned when the role is assigned (e.g., AD group memberships, SAP transactions). It doesn't store demographic data. The list of role holders is derived from identity data, not stored on the role profile. Approval workflows are configured separately from the role's entitlement profile."
+      "a": 2,
+      "e": "A role profile specifies the entitlements or attribute filter on a particular application that the role requires. When someone is assigned the role, the profile defines what should be provisioned. Extended attributes store metadata. Policies enforce compliance rules. Approval workflows handle request routing."
     },
     {
       "d": 5,
@@ -1212,15 +1212,15 @@
     },
     {
       "d": 5,
-      "q": "What is the benefit of using role-based access control (RBAC) versus granting individual entitlements to each user?",
+      "q": "An organization has 5,000 employees each with an average of 15 individual entitlements. During quarterly certifications, managers are overwhelmed reviewing thousands of individual entitlement decisions. How can the role model help?",
       "o": [
-        "RBAC is required by law in all regulated industries",
-        "Roles simplify governance by grouping entitlements into manageable business-meaningful bundles, reducing review complexity",
-        "RBAC eliminates the need for any access reviews or certifications",
-        "RBAC prevents all possible security vulnerabilities"
+        "Eliminate the need for certifications entirely by automating all access",
+        "Group entitlements into business roles so managers certify role assignments instead of individual entitlements, reducing review items significantly",
+        "Automatically approve all entitlements that are part of roles",
+        "Remove all entitlements and replace them with a single super-role per user"
       ],
       "a": 1,
-      "e": "RBAC bundles entitlements into roles that align with job functions, making it easier to assign, review, and certify access. Reviewers evaluate role assignments rather than hundreds of individual entitlements. RBAC isn't legally mandated (though it supports compliance). Certifications are still needed. No access model prevents all vulnerabilities."
+      "e": "By grouping related entitlements into business roles, managers review role assignments rather than individual entitlements, dramatically reducing the number of certification decisions. This makes reviews more meaningful and manageable. Roles don't eliminate certifications or auto-approve access."
     },
     {
       "d": 5,
@@ -1320,15 +1320,15 @@
     },
     {
       "d": 6,
-      "q": "What is the purpose of an account policy in IdentityIQ?",
+      "q": "The security team requires that all identities must have exactly one account on the Active Directory application — no more, no less — and accounts inactive for 90 days must be flagged. Which IIQ feature enforces these account-level rules?",
       "o": [
-        "To specify the maximum number of accounts an identity can have",
-        "To define which accounts are allowed to exist in the system",
-        "To define account-level rules such as password requirements, inactive account handling, and account attribute constraints",
-        "To create new accounts in target applications automatically"
+        "A Separation of Duties policy checking for AD entitlement conflicts",
+        "An account policy with rules for account multiplicity and inactivity detection",
+        "A certification campaign targeting the AD application",
+        "A provisioning policy on the AD application object"
       ],
-      "a": 2,
-      "e": "Account policies govern account-level behaviors including password strength rules, inactive account detection, and attribute-based constraints. They don't control which accounts are 'allowed' to exist. Account count limits aren't a standard account policy feature. Account creation is handled by provisioning, not account policies."
+      "a": 1,
+      "e": "Account policies enforce rules about accounts themselves — how many accounts an identity should have on an application, inactivity thresholds, and related checks. SoD policies check entitlement conflicts. Certifications are periodic reviews. Provisioning policies define defaults for creating accounts."
     },
     {
       "d": 6,
@@ -1380,15 +1380,15 @@
     },
     {
       "d": 6,
-      "q": "What is the purpose of a policy simulation in IdentityIQ?",
+      "q": "Before activating a new SoD policy that flags users with both \"Vendor Create\" and \"Payment Approve\" entitlements, the compliance team wants to see how many existing users would be in violation. How can they preview the impact?",
       "o": [
-        "To simulate user login behavior for security testing",
-        "To preview how many violations a new or modified policy would detect before activating it in production",
-        "To test application connector performance under load",
-        "To preview certification campaign scope before launching it"
+        "Run a full access certification and count the revocations",
+        "Execute a policy simulation to preview violations without enforcing the policy",
+        "Create a test policy with email-only notifications",
+        "Run an identity refresh with the policy temporarily enabled"
       ],
       "a": 1,
-      "e": "Policy simulation runs a proposed policy against current identity data to show how many violations it would detect, allowing administrators to evaluate impact before activation. It doesn't simulate logins. It doesn't test connector performance. Certification scope preview is a separate feature."
+      "e": "Policy simulation evaluates the policy against the current identity population and shows which identities would violate it, without actually creating violation records or triggering remediation. This lets the team assess impact before activation. Certifications serve a different purpose. Test policies would still create real violations."
     },
     {
       "d": 6,
@@ -1548,15 +1548,15 @@
     },
     {
       "d": 7,
-      "q": "What is a provisioning plan in IdentityIQ?",
+      "q": "During a Joiner workflow, IdentityIQ must create an AD account, add the user to two security groups, and create a ServiceNow account. How does IIQ internally represent these required changes before sending them to target applications?",
       "o": [
-        "A structured set of instructions describing the accounts and entitlements to create, modify, or remove on target applications",
-        "A project timeline for deploying IdentityIQ in an organization",
-        "A backup plan for restoring identity data after a failure",
-        "A report showing all provisioning activities over the past month"
+        "As individual work items assigned to each application owner",
+        "As a provisioning plan object containing account requests with attribute assignments for each target application",
+        "As a set of direct LDAP and REST API calls embedded in the workflow",
+        "As certification items that must be approved before execution"
       ],
-      "a": 0,
-      "e": "A provisioning plan is an IIQ object that describes the desired state changes for accounts and entitlements on target applications (create account, add entitlement, disable account, etc.). It is not a project timeline. It is not a backup mechanism. Provisioning reports are separate objects that show historical activity."
+      "a": 1,
+      "e": "A provisioning plan is a structured IIQ object that describes all the desired changes across target applications — account creation, modification, entitlement assignments. The Provisioning Broker then partitions this plan by application and routes each partition to the appropriate connector or integration executor."
     },
     {
       "d": 7,
@@ -1596,15 +1596,15 @@
     },
     {
       "d": 7,
-      "q": "What is the relationship between lifecycle events and business processes (workflows) in IdentityIQ?",
+      "q": "A Mover lifecycle event fires when an employee transfers from Engineering to Sales. The administrator wants the event to remove Engineering-specific access and grant Sales birthright access. Where should this logic be implemented?",
       "o": [
-        "Lifecycle events and business processes are the same thing with different names",
-        "Business processes trigger lifecycle events when provisioning is complete",
-        "Lifecycle events trigger business processes that contain the provisioning logic and approval steps",
-        "Lifecycle events replace business processes in newer versions of IIQ"
+        "In the identity attribute mapping configuration for the department attribute",
+        "In the business process (workflow) associated with the Mover lifecycle event, which can evaluate the change and create provisioning plans",
+        "In a scheduled certification campaign that targets department changes",
+        "In the correlation configuration on each affected application"
       ],
-      "a": 2,
-      "e": "Lifecycle events detect identity changes and invoke business processes (workflows) that define what actions to take, including provisioning, notifications, and approvals. Business processes don't trigger lifecycle events; it's the other direction. They are distinct concepts with different roles. Lifecycle events have not replaced business processes; they work together."
+      "a": 1,
+      "e": "Lifecycle events trigger business processes (workflows). The workflow can inspect what changed (department from Engineering to Sales), then create provisioning plans to remove old access and provision new access. Attribute mappings just sync data. Certifications are reviews. Correlation links accounts to identities."
     },
     {
       "d": 7,
@@ -1800,15 +1800,15 @@
     },
     {
       "d": 8,
-      "q": "What is the challenge period in an IdentityIQ certification?",
+      "q": "During an access review, a manager revokes a developer's access to the production database. The developer believes they still need it for an upcoming deployment. What IdentityIQ mechanism allows the developer to contest this decision?",
       "o": [
-        "The time required to configure a new certification",
-        "The time allocated for the certifier to complete their review",
-        "The period between certification campaigns",
-        "A window where users whose access was revoked can contest the decision with justification before it becomes final"
+        "The developer submits a new access request through LCM to re-obtain the access",
+        "The challenge period allows the developer to respond to the revocation with justification before it becomes final",
+        "The developer contacts the application owner to override the manager's decision directly",
+        "The revocation is automatically reversed if the developer has used the access recently"
       ],
-      "a": 3,
-      "e": "The challenge period allows affected users to respond to revocation decisions with comments explaining why they need the access, giving certifiers a chance to reconsider. It's not the review completion window (that's the active period). It's not the gap between campaigns. It's not a configuration period."
+      "a": 1,
+      "e": "If a challenge period is configured, users whose access is marked for revocation can contest the decision with comments and business justification. The certifier then reviews the challenge and makes a final decision. This happens before revocation is executed. A new access request is a separate process."
     },
     {
       "d": 8,
@@ -1836,15 +1836,15 @@
     },
     {
       "d": 8,
-      "q": "What is an Entitlement Owner Certification in IdentityIQ?",
+      "q": "The owner of the \"Finance Admin\" entitlement on the SAP application wants to review all users who currently hold this specific entitlement. Which certification type generates this review?",
       "o": [
-        "A certification that verifies entitlement definitions are correct",
-        "A certification where managers review all entitlements their reports hold",
-        "A certification where entitlement owners review all identities who hold their specific entitlements",
-        "A certification that checks if entitlements exist in target applications"
+        "A Manager Certification filtered to the SAP application",
+        "An Application Owner Certification for the SAP application",
+        "An Entitlement Owner Certification, where each entitlement owner reviews the users holding their entitlements",
+        "A Targeted Certification using an identity filter"
       ],
       "a": 2,
-      "e": "Entitlement Owner Certification asks the designated owner of each entitlement to review and certify all identities who hold that entitlement. Manager certifications have managers review their reports. Entitlement definition review is done through Role Composition Certification. Entitlement existence is verified through aggregation, not certification."
+      "e": "Entitlement Owner Certifications assign the review to the owner of each entitlement. The Finance Admin entitlement owner reviews all identities holding that entitlement across any application. Manager certs are organized by manager-report relationships. App Owner certs review all access on an application. Targeted certs are flexible but configured differently."
     },
     {
       "d": 8,
@@ -2004,15 +2004,15 @@
     },
     {
       "d": 9,
-      "q": "What are the three main categories of reports in IdentityIQ?",
+      "q": "An auditor needs the full details of every certification completed in Q1. A manager just wants a high-level summary of their team's compliance posture. Which report types should each receive?",
       "o": [
-        "Detailed reports, Archived reports, and Summary reports",
-        "Identity reports, Application reports, and Compliance reports",
-        "Daily reports, Weekly reports, and Monthly reports",
-        "Input reports, Processing reports, and Output reports"
+        "Both should use the Summary report with different filters applied",
+        "The auditor gets a Detailed report with full record-level data; the manager gets a Summary report with aggregated statistics",
+        "The auditor uses Audit Search; the manager uses Activity Search",
+        "Both should export raw data from the certification tab"
       ],
-      "a": 0,
-      "e": "IIQ organizes reports into Detailed (interactive tables/grids), Archived (formatted for audit dissemination, typically exported to PDF), and Summary (high-level overviews). The categorization isn't by subject area, frequency, or processing stage."
+      "a": 1,
+      "e": "IIQ offers Detailed reports (full record-level data for auditors), Summary reports (aggregated high-level statistics for executives/managers), and Archived reports (point-in-time snapshots). Audit Search and Activity Search are investigation tools, not report types."
     },
     {
       "d": 9,
@@ -2028,15 +2028,15 @@
     },
     {
       "d": 9,
-      "q": "What is the Environment Information Report in IdentityIQ used for?",
+      "q": "Before a major IIQ upgrade, the implementation team needs to document the current deployment: how many identities, roles, applications, and policies exist, plus the database type and Java version. Which report provides this snapshot?",
       "o": [
-        "To list all environment variables on the application server",
-        "To show the physical server room environment (temperature, humidity)",
-        "To display statistics about the IIQ deployment including object counts, database type, version info, and system configuration",
-        "To compare development and production environment configurations"
+        "The Certification Status Report",
+        "The Identity Risk Summary Report",
+        "The Environment Information Report, which shows object counts, database details, and system configuration",
+        "The Task Results page filtered to system tasks"
       ],
       "a": 2,
-      "e": "The Environment Information Report provides counts of IIQ objects (identities, applications, accounts, roles, etc.) plus technical details like database type, version, JDBC drivers, and IIQ version. It doesn't monitor physical infrastructure. It doesn't list OS environment variables. It doesn't compare environments."
+      "e": "The Environment Information Report provides deployment statistics: counts of identities, roles, applications, policies, and other objects, plus infrastructure details like database type/version and Java version. This is essential for pre-upgrade documentation. Task Results show execution details, not system overview."
     },
     {
       "d": 9,
@@ -2124,15 +2124,15 @@
     },
     {
       "d": 9,
-      "q": "What is the Debug page in IdentityIQ used for?",
+      "q": "An IIQ developer needs to inspect and manually edit the raw XML of a workflow object that isn't behaving as expected. Which administrative tool provides direct access to the underlying XML objects in the IIQ repository?",
       "o": [
-        "To run unit tests on custom connector code",
-        "To debug JavaScript errors in the IIQ web interface",
-        "To view, search, and edit the underlying XML objects stored in the IdentityIQ database for troubleshooting and advanced configuration",
-        "To monitor CPU and memory usage on the application server"
+        "The Application Configuration page",
+        "The System Setup > Audit Configuration panel",
+        "The Debug page, which allows viewing and editing raw XML objects in the IIQ database",
+        "The Task Results detail view"
       ],
       "a": 2,
-      "e": "The Debug page (accessible to system administrators) provides an object browser for viewing and editing the raw XML objects in the IIQ database, useful for troubleshooting and advanced configuration. It doesn't debug client-side JavaScript. It doesn't run unit tests. It doesn't monitor system resources."
+      "e": "The Debug page provides direct access to IdentityIQ's internal XML objects, allowing administrators and developers to view, search, and edit raw object XML. This is a powerful troubleshooting tool but should be used carefully as direct XML changes can break the system if done incorrectly."
     },
     {
       "d": 9,
