@@ -98,72 +98,72 @@
       "d": 1,
       "q": "A company is deploying an identity governance solution and wants to reduce the number of standing access privileges across the organization. Which approach aligns with this goal?",
       "o": [
-        "Implementing just-in-time access provisioning",
+        "Deploying a single sign-on solution",
         "Creating more granular roles for each department",
         "Running quarterly access certification campaigns",
-        "Deploying a single sign-on solution"
+        "Implementing just-in-time access provisioning"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Just-in-time (JIT) provisioning grants access only when needed and revokes it afterward, directly reducing standing privileges. Creating more granular roles may improve accuracy but doesn't reduce standing access since roles still grant persistent entitlements. Quarterly certifications can revoke stale access but operate on a delayed schedule and don't prevent accumulation. SSO simplifies authentication but doesn't reduce the number of underlying entitlements."
     },
     {
       "d": 1,
       "q": "During an access review, a manager notices an employee has entitlements from a previous role that are no longer needed. What identity governance concept does this scenario illustrate?",
       "o": [
-        "Access creep",
+        "Entitlement sprawl",
         "Privilege escalation",
         "Orphan account",
-        "Entitlement sprawl"
+        "Access creep"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Access creep occurs when users accumulate entitlements over time through role changes without having old access removed. Privilege escalation refers to gaining elevated permissions beyond what was intended, typically through exploitation or misconfiguration. An orphan account is one that no longer has an associated active identity. Entitlement sprawl describes the uncontrolled growth of entitlements in applications rather than accumulation on a specific user."
     },
     {
       "d": 1,
       "q": "An auditor asks the IT team to demonstrate that access to financial systems is reviewed regularly and compliant with SOX requirements. Which identity governance capability directly supports this?",
       "o": [
-        "Access certification campaigns",
         "Automated provisioning workflows",
+        "Access certification campaigns",
         "Password management policies",
         "Identity lifecycle management"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Access certification campaigns (access reviews) allow managers and application owners to periodically attest that user access is appropriate, directly producing SOX compliance evidence. Automated provisioning handles granting and revoking access but doesn't produce compliance attestation records. Password policies address authentication security, not access appropriateness. Lifecycle management handles joiner/mover/leaver processes but doesn't generate the audit attestation that SOX requires."
     },
     {
       "d": 1,
       "q": "A healthcare organization must comply with HIPAA regulations and needs to track who accessed patient records and when. Which identity governance principle is most relevant?",
       "o": [
-        "Audit trail and activity monitoring",
-        "Least privilege access",
         "Segregation of duties",
+        "Least privilege access",
+        "Audit trail and activity monitoring",
         "Role mining"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Audit trails and activity monitoring provide the who/what/when records needed for HIPAA compliance regarding PHI access. Least privilege limits access scope but doesn't track access events. SoD prevents conflicting access but isn't primarily about monitoring access to records. Role mining discovers role definitions from existing access patterns, not for tracking access activity."
     },
     {
       "d": 1,
       "q": "A company wants to automatically assign application access when an employee joins a specific department. Which identity governance process handles this?",
       "o": [
-        "Birthright provisioning",
         "Request-based provisioning",
+        "Birthright provisioning",
         "Access certification",
         "Entitlement remediation"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Birthright provisioning automatically grants baseline access based on identity attributes like department or job title without requiring a request. Request-based provisioning requires the user or manager to initiate an access request. Access certification reviews existing access but doesn't assign new access. Entitlement remediation removes inappropriate access found during reviews."
     },
     {
       "d": 1,
       "q": "An organization discovers that 40% of its application accounts cannot be linked to any current employee. What identity governance problem does this represent?",
       "o": [
-        "Orphan accounts",
+        "Entitlement proliferation",
         "Access creep",
         "Role explosion",
-        "Entitlement proliferation"
+        "Orphan accounts"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Orphan accounts are application accounts that have no corresponding active identity in the governance system, often from former employees whose access wasn't properly deprovisioned. Access creep is the accumulation of excessive privileges on active accounts. Role explosion is having too many roles, making governance unmanageable. Entitlement proliferation is the uncontrolled growth of fine-grained permissions within applications."
     },
     {
@@ -206,36 +206,36 @@
       "d": 1,
       "q": "A compliance officer needs to ensure that when employees transfer between departments, their old access is removed and new access for their new role is granted. Which governance concept addresses this?",
       "o": [
-        "Mover process in identity lifecycle management",
-        "Access certification campaign",
         "Separation of duties enforcement",
+        "Access certification campaign",
+        "Mover process in identity lifecycle management",
         "Privileged access review"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The mover process in identity lifecycle management specifically handles internal transfers by revoking access associated with the old role and provisioning access for the new role. Access certifications review existing access periodically but aren't triggered by transfer events. SoD enforcement prevents policy violations but doesn't handle the access transition itself. Privileged access review is limited to elevated accounts, not general role transitions."
     },
     {
       "d": 1,
       "q": "Which identity governance principle states that users should only be given the minimum access necessary to perform their job functions?",
       "o": [
-        "Least privilege",
         "Need to know",
+        "Least privilege",
         "Zero trust",
         "Defense in depth"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Least privilege is the principle that users should have only the minimum level of access required for their job duties. Need to know is related but specifically applies to data classification and information access rather than system entitlements broadly. Zero trust is a security architecture model that requires continuous verification, not specifically about minimizing privileges. Defense in depth is a layered security approach, not an access minimization principle."
     },
     {
       "d": 1,
       "q": "A bank's internal audit team discovers that some users have both the ability to create vendor records and approve payments to those vendors. What type of violation has been identified?",
       "o": [
-        "Separation of duties violation",
+        "Data classification violation",
         "Excessive privilege violation",
         "Orphan account violation",
-        "Data classification violation"
+        "Separation of duties violation"
       ],
-      "a": 0,
+      "a": 3,
       "e": "This is a separation of duties violation because one user can both create a vendor and approve payments to that vendor, enabling potential fraud. Excessive privilege means having more access than needed but doesn't specifically address the conflict between two functions. Orphan account violations involve unlinked accounts, not relevant here. Data classification violations involve mishandling data sensitivity levels."
     },
     {
@@ -254,24 +254,24 @@
       "d": 1,
       "q": "A company has deployed identity governance but finds that managers rubber-stamp all access reviews without actually evaluating them. What is the recommended approach to address this?",
       "o": [
-        "Implement risk-based certification with targeted reviews and escalation",
         "Increase the frequency of certification campaigns",
+        "Implement risk-based certification with targeted reviews and escalation",
         "Remove managers from the certification process entirely",
         "Reduce the number of entitlements visible in each review"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Risk-based certification focuses reviewer attention on high-risk items and can escalate unreviewed items, making reviews more meaningful and manageable. Increasing frequency worsens reviewer fatigue and rubber-stamping. Removing managers eliminates valuable business context about whether access is appropriate. Reducing visible entitlements might hide items that actually need review."
     },
     {
       "d": 1,
       "q": "An organization's HR system is considered the authoritative source for employee data. In identity governance, what role does this HR system play?",
       "o": [
-        "Authoritative source of identity",
-        "Target application for provisioning",
         "Governance policy engine",
+        "Target application for provisioning",
+        "Authoritative source of identity",
         "Access certification data source"
       ],
-      "a": 0,
+      "a": 2,
       "e": "An authoritative source (source of truth) provides the canonical identity data (names, departments, hire dates, termination status) that drives governance processes. A target application is a system where access is provisioned and managed. The governance policy engine evaluates rules and policies within the IGA platform itself. An access certification data source is not a standard governance term; certifications draw data from the IGA platform."
     },
     {
@@ -302,72 +302,72 @@
       "d": 1,
       "q": "What governance benefit does an access request catalog provide when it shows users only the access they are eligible to request?",
       "o": [
-        "It reduces inappropriate access requests and enforces policy at the request stage",
-        "It eliminates the need for access certifications entirely",
         "It replaces separation of duties policies",
+        "It eliminates the need for access certifications entirely",
+        "It reduces inappropriate access requests and enforces policy at the request stage",
         "It removes the requirement for manager approvals"
       ],
-      "a": 0,
+      "a": 2,
       "e": "A curated request catalog constrains what users can request based on policies and eligibility, reducing inappropriate requests before they enter the approval workflow. Certifications are still needed to review access that was appropriately granted but may no longer be needed. SoD policies are still needed to prevent toxic combinations even within eligible items. Manager approvals remain a governance control even with a filtered catalog."
     },
     {
       "d": 1,
       "q": "A newly hired compliance analyst asks why the organization tracks both entitlements and roles in its governance platform. What is the best explanation?",
       "o": [
-        "Roles group entitlements into business-meaningful collections, making governance scalable; entitlements are the fine-grained permissions that roles contain",
+        "Roles are only used during access reviews while entitlements are only used during provisioning",
         "Roles and entitlements are different terms for the same thing and are tracked for backward compatibility",
         "Entitlements are for IT users only while roles are for business users only",
-        "Roles are only used during access reviews while entitlements are only used during provisioning"
+        "Roles group entitlements into business-meaningful collections, making governance scalable; entitlements are the fine-grained permissions that roles contain"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Roles aggregate fine-grained entitlements into business-understandable bundles (like 'Accounts Payable Clerk'), making governance manageable at scale. Roles and entitlements are distinct concepts with different granularity. Both apply to all user types. Both are used across governance processes including reviews, provisioning, and policy enforcement."
     },
     {
       "d": 2,
       "q": "A SailPoint consultant is designing an IdentityIQ deployment and must decide where identity data, workflow state, and configuration objects will be persisted. Which component serves as the primary persistent store?",
       "o": [
-        "The relational database (e.g., MySQL, Oracle, SQL Server)",
+        "The SailPoint Cloud Gateway",
         "The application server's file system",
         "An in-memory identity cube cache",
-        "The SailPoint Cloud Gateway"
+        "The relational database (e.g., MySQL, Oracle, SQL Server)"
       ],
-      "a": 0,
+      "a": 3,
       "e": "IdentityIQ uses a relational database as its primary persistent store for all identity data, configuration objects, workflow states, and audit logs. The application server file system stores the deployed WAR file and log files but not identity data. Identity cubes are logical objects loaded from the database, not a separate persistent cache layer. The Cloud Gateway connects to SaaS applications, not for data storage."
     },
     {
       "d": 2,
       "q": "A deployment engineer needs to understand the runtime environment for IdentityIQ. Which statement best describes how IdentityIQ is deployed?",
       "o": [
-        "As a Java web application (WAR file) on a Java application server like Tomcat",
         "As a standalone desktop application installed on each administrator's workstation",
+        "As a Java web application (WAR file) on a Java application server like Tomcat",
         "As a microservices-based container deployment requiring Kubernetes",
         "As a browser extension that connects directly to managed applications"
       ],
-      "a": 0,
+      "a": 1,
       "e": "IdentityIQ is packaged as a WAR file deployed on a Java application server like Apache Tomcat. It is not a desktop application; it provides a web-based UI accessed via browser. While containers can host Tomcat, IIQ is not natively microservices-based. It is a server-side application, not a browser extension."
     },
     {
       "d": 2,
       "q": "An administrator notices that IdentityIQ stores its configuration, rules, and policies as XML. What are these XML-based configuration artifacts called?",
       "o": [
-        "SailPoint XML objects (artifacts)",
+        "SAML metadata documents",
         "SCIM resources",
         "LDAP schema entries",
-        "SAML metadata documents"
+        "SailPoint XML objects (artifacts)"
       ],
-      "a": 0,
+      "a": 3,
       "e": "IdentityIQ configuration is stored as SailPoint XML objects that can be imported, exported, and version-controlled. SCIM is a protocol for identity provisioning between systems, not IIQ's internal configuration format. LDAP schema entries define directory attributes. SAML metadata documents configure federated authentication, not IIQ's internal configuration."
     },
     {
       "d": 2,
       "q": "During installation, the IdentityIQ team must create the database schema. Which approach is used to initialize the IdentityIQ database?",
       "o": [
-        "Running the provided SQL schema scripts and using the iiq console import command",
         "Using the IdentityIQ Plugin Manager GUI",
+        "Running the provided SQL schema scripts and using the iiq console import command",
         "Running the SailPoint Cloud Gateway installer",
         "Calling the IdentityIQ REST API's schema endpoint"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The iiq console and bundled SQL scripts create and update the database schema during installation and upgrades. The Plugin Manager manages plugins after deployment, not the core database schema. The Cloud Gateway connects SaaS apps, not database initialization. The REST API provides integration endpoints, not database schema management."
     },
     {
@@ -398,12 +398,12 @@
       "d": 2,
       "q": "Which IdentityIQ component is responsible for executing scheduled operations like aggregation, certification generation, and report generation?",
       "o": [
-        "The task scheduler and task execution framework",
-        "The identity warehouse",
         "The connector gateway",
+        "The identity warehouse",
+        "The task scheduler and task execution framework",
         "The web browser client"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The task scheduler triggers and manages scheduled operations such as aggregations, certifications, and reports. The identity warehouse is the database where data is stored, not an execution engine. The connector gateway mediates connections to applications but doesn't schedule tasks. The browser client provides the user interface, not backend task execution."
     },
     {
@@ -422,36 +422,36 @@
       "d": 2,
       "q": "Which IdentityIQ architectural layer handles business logic such as policy evaluation, workflow execution, and role calculations?",
       "o": [
-        "The server-side application layer (business logic tier)",
+        "The presentation layer (UI)",
         "The database layer",
         "The connector layer",
-        "The presentation layer (UI)"
+        "The server-side application layer (business logic tier)"
       ],
-      "a": 0,
+      "a": 3,
       "e": "The server-side application layer contains the core business logic including policy engines, workflow execution, role computation, and certification processing. The database layer stores and retrieves data but doesn't execute business logic. The connector layer handles communication with target applications. The presentation layer renders the UI and handles user interactions."
     },
     {
       "d": 2,
       "q": "An organization runs IdentityIQ on multiple application server nodes for high availability. How does IdentityIQ coordinate task execution across clustered nodes?",
       "o": [
-        "Through the shared database which manages task assignment and prevents duplicate execution",
-        "Through a dedicated message broker like RabbitMQ or Kafka",
         "Through direct peer-to-peer communication between server nodes",
+        "Through a dedicated message broker like RabbitMQ or Kafka",
+        "Through the shared database which manages task assignment and prevents duplicate execution",
         "Through a centralized load balancer that assigns tasks to specific nodes"
       ],
-      "a": 0,
+      "a": 2,
       "e": "In a clustered deployment, IdentityIQ nodes coordinate through the shared database, which manages task locking and assignment to prevent duplicate execution. IIQ doesn't require a separate message broker for task coordination. Nodes don't communicate peer-to-peer for task management. Load balancers distribute HTTP requests but don't coordinate backend task execution logic."
     },
     {
       "d": 2,
       "q": "What is the role of ServiceDefinition XML objects in IdentityIQ?",
       "o": [
-        "They define background services and their execution configurations within IdentityIQ",
-        "They define REST API endpoints exposed by IdentityIQ",
         "They store user password policies",
+        "They define REST API endpoints exposed by IdentityIQ",
+        "They define background services and their execution configurations within IdentityIQ",
         "They configure the database connection pool settings"
       ],
-      "a": 0,
+      "a": 2,
       "e": "ServiceDefinition XML objects define background services (like the Task Scheduler service or Request Processor) and their configurations. REST API endpoints are defined by the application framework and plugins, not ServiceDefinitions. Password policies are stored as Policy objects. Database connection settings are configured in the application server's data source configuration files."
     },
     {
@@ -470,24 +470,24 @@
       "d": 2,
       "q": "Which IdentityIQ object type defines the rules for mapping account attributes from a connected application to identity attributes?",
       "o": [
-        "The Application object (via correlation and attribute mapping configuration)",
-        "The TaskDefinition object",
         "The Workflow object",
+        "The TaskDefinition object",
+        "The Application object (via correlation and attribute mapping configuration)",
         "The Policy object"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The Application object contains the correlation configuration and attribute mappings that determine how application account attributes map to identity cube attributes. TaskDefinition defines executable tasks but not attribute mappings. Workflows define multi-step business processes. Policies define compliance rules, not attribute mappings."
     },
     {
       "d": 2,
       "q": "An administrator needs to debug why certain identities aren't correlating with their application accounts during aggregation. Where should they look first?",
       "o": [
-        "The correlation configuration on the Application object",
+        "The email notification templates",
         "The certification schedule",
         "The role hierarchy definition",
-        "The email notification templates"
+        "The correlation configuration on the Application object"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Correlation issues are caused by incorrect correlation rules or attribute mappings defined on the Application object. Certification schedules control review timing, not identity-to-account correlation. Role hierarchy defines role relationships, not account correlation logic. Email templates handle notifications, not data correlation."
     },
     {
@@ -506,24 +506,24 @@
       "d": 2,
       "q": "In IdentityIQ's object model, what is the relationship between a Bundle and a Role?",
       "o": [
-        "Bundle is the internal XML object type name that represents what the UI displays as a Role",
         "A Bundle is a collection of multiple roles grouped for certification campaigns",
+        "Bundle is the internal XML object type name that represents what the UI displays as a Role",
         "A Role is a specific subtype of Bundle used exclusively for IT entitlements",
         "Bundles and Roles are completely separate and unrelated object types"
       ],
-      "a": 0,
+      "a": 1,
       "e": "In IdentityIQ's object model, 'Bundle' is the XML object type name for what appears as 'Role' in the UI. They are the same object. Bundles are not collections of roles; each Bundle is one role. The term Bundle applies to all role types (business, IT, entitlement), not just IT. They are not separate objects."
     },
     {
       "d": 2,
       "q": "An organization needs IdentityIQ to process access requests asynchronously with multi-level approvals and escalation. Which component handles this?",
       "o": [
-        "The workflow engine",
-        "The aggregation task framework",
         "The identity refresh task",
+        "The aggregation task framework",
+        "The workflow engine",
         "The connector framework"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The workflow engine manages asynchronous, multi-step business processes including access requests with approvals, escalations, and provisioning actions. Aggregation tasks read data from applications. Identity refresh updates identity cube attributes and calculations. The connector framework handles connectivity to target applications, not business process orchestration."
     },
     {
@@ -542,12 +542,12 @@
       "d": 2,
       "q": "An on-premises IdentityIQ deployment needs to connect to a SaaS application accessible only over the internet. Which component enables this connectivity?",
       "o": [
-        "The SailPoint Cloud Gateway (Virtual Appliance)",
         "A custom JDBC database connector",
+        "The SailPoint Cloud Gateway (Virtual Appliance)",
         "The IdentityIQ plugin framework",
         "The task scheduler"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The Cloud Gateway (Virtual Appliance) acts as a secure relay between the on-premises IdentityIQ and cloud/SaaS applications without requiring inbound firewall rules. JDBC connectors connect to databases, not SaaS applications. The plugin framework extends IIQ functionality but doesn't solve network connectivity. The task scheduler runs jobs but doesn't handle network routing to external services."
     },
     {
@@ -566,48 +566,48 @@
       "d": 3,
       "q": "A SailPoint administrator discovers that aggregation brought in 500 new accounts but only 350 were automatically linked to existing identities. What determines whether an account is correlated to an identity?",
       "o": [
-        "The correlation configuration and rules defined on the Application object",
-        "The number of available IdentityIQ licenses",
         "The identity cube refresh schedule frequency",
+        "The number of available IdentityIQ licenses",
+        "The correlation configuration and rules defined on the Application object",
         "The role assignment criteria on Bundle objects"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Correlation configuration on the Application object defines the rules for matching application accounts to identities (e.g., matching account username to employee ID). Licensing doesn't affect correlation logic. The refresh schedule determines when cubes are recalculated, not how accounts are matched. Role assignment criteria define who gets roles, not how accounts link to identities."
     },
     {
       "d": 3,
       "q": "An identity cube in IdentityIQ shows a user has accounts on Active Directory, SAP, and ServiceNow. What does the identity cube represent?",
       "o": [
-        "A unified view of a single person with all their linked accounts, entitlements, roles, and attributes",
-        "A single application account record with its entitlements",
         "A database table containing all users in the organization",
+        "A single application account record with its entitlements",
+        "A unified view of a single person with all their linked accounts, entitlements, roles, and attributes",
         "A role-to-entitlement mapping definition"
       ],
-      "a": 0,
+      "a": 2,
       "e": "An identity cube is the central representation of a person in IIQ, aggregating all their accounts, entitlements, roles, and attributes from across connected applications into one unified view. It is not a single account record; it contains multiple accounts as Links. It's not a database table; it's a logical identity object. It's not limited to role mappings; it includes all identity data."
     },
     {
       "d": 3,
       "q": "During aggregation, a new account from an HR application created a new identity rather than correlating to an existing one. What is the most likely cause?",
       "o": [
-        "The correlation rule could not find a matching identity based on the configured matching attributes",
-        "The identity cube storage has reached its maximum capacity",
         "The application connector timed out during the aggregation process",
+        "The identity cube storage has reached its maximum capacity",
+        "The correlation rule could not find a matching identity based on the configured matching attributes",
         "The role model was not properly configured for the HR application"
       ],
-      "a": 0,
+      "a": 2,
       "e": "When correlation fails to find a matching identity, IIQ creates a new identity for the uncorrelated account. This usually means matching attributes (like employee ID or email) don't align between the source and existing identities. There is no identity cube capacity limit that causes this. A connector timeout would fail the aggregation entirely, not create new identities. Role configuration doesn't affect identity correlation."
     },
     {
       "d": 3,
       "q": "An administrator needs to add a custom attribute to track each employee's cost center on their identity. What is the correct approach?",
       "o": [
-        "Define the attribute in the ObjectConfig for Identity and configure a mapping from the authoritative source",
+        "Add a column directly to the spt_identity database table",
         "Create a separate database table for cost center data outside of IIQ",
         "Modify the Identity Java class source code directly",
-        "Add a column directly to the spt_identity database table"
+        "Define the attribute in the ObjectConfig for Identity and configure a mapping from the authoritative source"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Custom identity attributes are defined in the Identity ObjectConfig XML, and values are populated through attribute mappings from authoritative sources. Creating separate tables bypasses IIQ's data model and won't be visible in the UI. IIQ's Java classes are compiled and not meant to be modified directly. Adding columns directly to the database breaks IIQ's ORM layer and will be overwritten during upgrades."
     },
     {
@@ -638,12 +638,12 @@
       "d": 3,
       "q": "A manager reports that an employee's department attribute in IdentityIQ doesn't match the HR system, even though aggregation completed successfully. What should the administrator check?",
       "o": [
-        "The identity attribute mapping configuration to ensure department is correctly mapped from the authoritative source",
+        "The password complexity policy",
         "The email notification template configuration",
         "The certification campaign schedule",
-        "The password complexity policy"
+        "The identity attribute mapping configuration to ensure department is correctly mapped from the authoritative source"
       ],
-      "a": 0,
+      "a": 3,
       "e": "If an attribute doesn't reflect the authoritative source after aggregation, the attribute mapping is likely incorrect, missing, or pointing to the wrong source attribute. Email templates don't affect identity data. Certification schedules don't impact attribute values. Password policies are completely unrelated to identity attribute mapping."
     },
     {
@@ -662,24 +662,24 @@
       "d": 3,
       "q": "An organization has an authoritative source (HR system) and several target applications. During identity creation, which source's data takes precedence for core attributes?",
       "o": [
-        "The authoritative source (HR system)",
-        "The most recently aggregated application",
         "The application with the most user accounts",
+        "The most recently aggregated application",
+        "The authoritative source (HR system)",
         "All sources are weighted equally by default"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The authoritative source (typically HR) takes precedence for core identity attributes like name, department, and manager since it's the source of truth for employee data. Aggregation order doesn't determine attribute precedence. Account count doesn't affect source authority. Attribute sources are explicitly prioritized in the mapping configuration, not equally weighted."
     },
     {
       "d": 3,
       "q": "When a terminated employee's record is removed from the authoritative HR system, what happens to their identity in IdentityIQ?",
       "o": [
-        "The identity can be marked as inactive, triggering leaver workflows that deprovision associated accounts",
-        "The identity and all associated data are immediately and permanently deleted",
         "The identity remains completely unchanged until an administrator manually updates it",
+        "The identity and all associated data are immediately and permanently deleted",
+        "The identity can be marked as inactive, triggering leaver workflows that deprovision associated accounts",
         "Only the identity's password is reset while all access remains intact"
       ],
-      "a": 0,
+      "a": 2,
       "e": "When the authoritative source no longer contains a record, IIQ can detect this during aggregation, mark the identity inactive, and trigger leaver lifecycle events that disable or remove accounts. IIQ doesn't permanently delete identities immediately; it manages them through configurable lifecycle processes. The identity isn't simply left unchanged; disappearance from the authoritative source is a trackable event. Password reset alone wouldn't properly handle a termination."
     },
     {
@@ -698,168 +698,168 @@
       "d": 3,
       "q": "What information is stored in the Links section of an identity cube?",
       "o": [
-        "The application accounts that are correlated to (linked with) the identity",
         "Hyperlinks to external documentation about the employee",
+        "The application accounts that are correlated to (linked with) the identity",
         "References to the identity's management chain hierarchy",
         "URLs of the applications the identity can access"
       ],
-      "a": 0,
+      "a": 1,
       "e": "In IIQ, a Link is an application account correlated to an identity. The Links section shows all application accounts belonging to that person with their attributes and entitlements. They are not hyperlinks or URLs. Manager relationships are stored as identity attributes (the manager reference). Application URLs are stored on Application objects, not as identity Links."
     },
     {
       "d": 3,
       "q": "An organization wants to automatically calculate each identity's risk score based on the sensitivity of their entitlements. Which IdentityIQ feature supports this?",
       "o": [
-        "Composite risk scoring using entitlement and application risk weights",
         "Password expiration policy enforcement",
+        "Composite risk scoring using entitlement and application risk weights",
         "Certification campaign scheduling",
         "Application schema discovery"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Composite risk scoring aggregates risk values assigned to individual entitlements and applications to calculate an overall identity risk score automatically. Password expiration policies manage credential lifecycle, not risk scoring. Certification scheduling determines review timing, not risk computation. Application schema discovery reads application data structures, not risk values."
     },
     {
       "d": 3,
       "q": "An aggregation detects that several accounts have been removed from a target application. How does IdentityIQ handle these missing accounts?",
       "o": [
-        "The accounts can be marked as removed or their links deleted from identities based on aggregation configuration",
         "IdentityIQ immediately re-creates the accounts in the target application",
+        "The accounts can be marked as removed or their links deleted from identities based on aggregation configuration",
         "IdentityIQ ignores missing accounts and takes no action by default",
         "New identities are automatically created for each missing account"
       ],
-      "a": 0,
+      "a": 1,
       "e": "When aggregation detects missing accounts, IIQ can mark them as removed, delete the link from the identity, or trigger remediation based on the application's aggregation configuration. IIQ doesn't re-create accounts in target systems during aggregation. IIQ does track and act on missing accounts through configurable behaviors. Missing accounts don't trigger new identity creation."
     },
     {
       "d": 3,
       "q": "What is the purpose of identity attribute mappings in IdentityIQ?",
       "o": [
-        "To define which application or source attributes populate which identity cube attributes",
-        "To create a visual org chart of all identities in the organization",
         "To map physical office locations to identity records",
+        "To create a visual org chart of all identities in the organization",
+        "To define which application or source attributes populate which identity cube attributes",
         "To define the relationship between roles and their contained entitlements"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Identity attribute mappings define the rules for how source attributes (like HR department, title, email) flow into identity cube attributes. They don't create org charts; manager relationships are just one attribute. They don't map physical locations unless specifically configured as an attribute. Role-to-entitlement relationships are defined in role (Bundle) profiles, not identity attribute mappings."
     },
     {
       "d": 3,
       "q": "A contractor's identity in IdentityIQ should only be active during their contract period. Which identity management feature supports this?",
       "o": [
-        "Lifecycle events triggered by contract start and end dates from the authoritative source",
-        "Manual account creation and deletion by the helpdesk for each contract",
         "Password rotation policies that expire after the contract period",
+        "Manual account creation and deletion by the helpdesk for each contract",
+        "Lifecycle events triggered by contract start and end dates from the authoritative source",
         "Application-level account expiration settings on each individual system"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Lifecycle events can be configured to activate and deactivate identities based on date attributes (like contract start/end dates) from the authoritative source, providing automated governance. Manual management is error-prone and unscalable. Password rotation doesn't control identity activation status. Application-level settings only affect individual applications, not centralized identity lifecycle governance."
     },
     {
       "d": 3,
       "q": "What is the difference between account aggregation and entitlement aggregation in IdentityIQ?",
       "o": [
-        "Account aggregation reads user accounts and their assignments; entitlement aggregation reads the catalog of available permissions from an application",
+        "There is no difference; they are the same operation with different names",
         "Account aggregation is always faster than entitlement aggregation",
         "Account aggregation runs only daily; entitlement aggregation runs only weekly",
-        "There is no difference; they are the same operation with different names"
+        "Account aggregation reads user accounts and their assignments; entitlement aggregation reads the catalog of available permissions from an application"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Account aggregation reads individual user accounts and their current entitlement assignments. Entitlement aggregation reads the catalog of available entitlements (like AD groups, SAP roles) from the application, populating IIQ's entitlement catalog. Speed depends on data volume, not aggregation type. Both can be scheduled at any frequency. They are distinct operations with different purposes and results."
     },
     {
       "d": 3,
       "q": "An administrator needs to merge two identity cubes that represent the same person. What is the recommended approach?",
       "o": [
-        "Use the identity merge capability to combine accounts and history onto the surviving identity",
-        "Delete both identities and re-aggregate from all sources",
         "Create a third identity and manually reassign all accounts to it",
+        "Delete both identities and re-aggregate from all sources",
+        "Use the identity merge capability to combine accounts and history onto the surviving identity",
         "Wait for the next aggregation cycle to automatically detect and merge duplicates"
       ],
-      "a": 0,
+      "a": 2,
       "e": "IdentityIQ provides identity merge functionality to consolidate duplicate identities, preserving all account links and historical data on the surviving identity. Deleting both and re-aggregating risks data loss and creates disruption. Creating a third identity adds complexity. Aggregation doesn't automatically detect or merge duplicate identities; correlation only runs for new or updated accounts."
     },
     {
       "d": 3,
       "q": "What does the 'inactive' flag on an identity indicate in IdentityIQ?",
       "o": [
-        "The person is no longer active (e.g., terminated or on extended leave) and their access may be restricted",
         "The identity record is corrupted and needs database repair",
+        "The person is no longer active (e.g., terminated or on extended leave) and their access may be restricted",
         "The identity has never logged into the IdentityIQ web interface",
         "The identity's application accounts are locked due to failed password attempts"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The inactive flag indicates the person is no longer in an active employment state, typically triggering leaver processes to disable or remove their access across systems. It doesn't indicate data corruption. It's unrelated to whether someone has logged into IIQ's UI. Application-level account lockouts are managed separately and don't set the identity-level inactive flag."
     },
     {
       "d": 3,
       "q": "After aggregation, some identity cube attributes are being overwritten by values from a non-authoritative application. What should the administrator check?",
       "o": [
-        "The attribute mapping source priority to ensure the authoritative source has the highest precedence",
+        "The role assignment rule definitions",
         "The application's connector type and version",
         "The aggregation task schedule timing",
-        "The role assignment rule definitions"
+        "The attribute mapping source priority to ensure the authoritative source has the highest precedence"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Attribute mappings can have multiple sources with priority ordering. If a non-authoritative source has higher priority (or the authoritative source mapping is missing), its values will overwrite correct values. The connector type doesn't determine attribute priority. The aggregation schedule affects timing but not which source wins for attributes. Role assignment rules determine role membership, not identity attribute source precedence."
     },
     {
       "d": 4,
       "q": "A SailPoint administrator needs to connect IdentityIQ to an on-premises Active Directory environment. Which connector type is most appropriate?",
       "o": [
-        "The native Active Directory connector",
         "The JDBC database connector",
+        "The native Active Directory connector",
         "The DelimitedFile (flat file) connector",
         "The Web Services connector"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The native Active Directory connector is purpose-built for AD, supporting LDAP operations, group management, and AD-specific features like delta aggregation. JDBC connects to relational databases, not LDAP directories. DelimitedFile reads CSV/delimited text files, not live directories. Web Services connectors interact with REST/SOAP APIs, not LDAP."
     },
     {
       "d": 4,
       "q": "During application onboarding, an administrator needs to define how IdentityIQ reads account data from a connected application. What does the application schema define?",
       "o": [
-        "The structure of accounts and entitlements (attribute names, types, and relationships) readable from the application",
         "The visual layout of the application in the IdentityIQ UI",
+        "The structure of accounts and entitlements (attribute names, types, and relationships) readable from the application",
         "The scheduling frequency for aggregation tasks against this application",
         "The approval workflow for access requests to this application"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The application schema defines the account and group (entitlement) attributes that IIQ knows about, including data types, multi-value flags, and entitlement designations. UI layout is not part of the schema. Scheduling is configured on task objects. Approval workflows are defined separately in workflow objects."
     },
     {
       "d": 4,
       "q": "An organization has a legacy HR system that exports employee data to a CSV file nightly. How should IdentityIQ import this data?",
       "o": [
-        "Use the DelimitedFile connector pointing to the CSV file location",
+        "Use the SCIM 2.0 connector",
         "Use the Active Directory connector",
         "Use the JDBC database connector to read the CSV directly",
-        "Use the SCIM 2.0 connector"
+        "Use the DelimitedFile connector pointing to the CSV file location"
       ],
-      "a": 0,
+      "a": 3,
       "e": "The DelimitedFile connector reads CSV and other delimited text files, making it ideal for file-based exports. The AD connector is for LDAP directories. JDBC connects to relational databases, not flat files. SCIM is for cloud identity provisioning APIs, not file imports."
     },
     {
       "d": 4,
       "q": "What is the purpose of schema discovery during application onboarding in IdentityIQ?",
       "o": [
-        "To automatically detect the account and entitlement attributes available in the connected application",
         "To discover all identities that should exist in the system",
+        "To automatically detect the account and entitlement attributes available in the connected application",
         "To find policy violations already present in the application",
         "To identify roles that should be created from the application's data"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Schema discovery connects to the application and reads its metadata to determine what account and entitlement attributes are available, populating the application schema. It doesn't discover identities; that's aggregation and correlation. Policy violations are found by policy scans. Role discovery comes from role mining, not schema discovery."
     },
     {
       "d": 4,
       "q": "After connecting a new application, the administrator runs account aggregation but no accounts appear in IdentityIQ. What is the most likely first troubleshooting step?",
       "o": [
-        "Test the application connection and verify connector configuration (credentials, base DN, search filters)",
+        "Run an identity refresh task before aggregation",
         "Restart the IdentityIQ application server immediately",
         "Delete and recreate all existing identities in IIQ",
-        "Run an identity refresh task before aggregation"
+        "Test the application connection and verify connector configuration (credentials, base DN, search filters)"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Connection and configuration issues (wrong credentials, incorrect base DN, overly restrictive search filters) are the most common reasons aggregation returns no data. Restarting the app server is unlikely to fix a configuration problem. Deleting identities would be destructive and unrelated. Identity refresh operates on already-aggregated data, not raw application data."
     },
     {
@@ -878,48 +878,48 @@
       "d": 4,
       "q": "During application onboarding, an administrator configures a correlation rule on the application. What does this accomplish?",
       "o": [
-        "It defines how incoming application accounts are matched to existing identities during aggregation",
         "It determines the order in which multiple applications are aggregated",
+        "It defines how incoming application accounts are matched to existing identities during aggregation",
         "It sets the application's password complexity requirements",
         "It defines which of the application's entitlements are considered high-risk"
       ],
-      "a": 0,
+      "a": 1,
       "e": "The correlation rule defines the logic for matching accounts from the application to identities in IIQ (e.g., matching account username to identity employee ID). Aggregation order is controlled by task scheduling. Password policies are separate configuration objects. Entitlement risk classification is configured independently from correlation."
     },
     {
       "d": 4,
       "q": "An administrator needs IdentityIQ to not only read data from an application but also create, modify, and disable accounts in it. What additional configuration is needed beyond aggregation?",
       "o": [
-        "Provisioning must be configured on the application including supported operations and provisioning policies",
         "Only account aggregation configuration is sufficient for full management",
+        "Provisioning must be configured on the application including supported operations and provisioning policies",
         "A separate provisioning server must be installed alongside IdentityIQ",
         "The application must first be converted to a SaaS deployment"
       ],
-      "a": 0,
+      "a": 1,
       "e": "To write changes back to an application (CRUD operations on accounts), provisioning must be explicitly enabled and configured on the application object. Aggregation alone only enables reading data. No separate provisioning server is needed; IIQ provisions through its connectors. Both on-premise and SaaS applications can be provisioned."
     },
     {
       "d": 4,
       "q": "What is the purpose of running entitlement aggregation separately from account aggregation when onboarding an application?",
       "o": [
-        "To read the catalog of available entitlements (groups, roles, permissions) from the application into IIQ's entitlement catalog",
-        "To assign entitlements to users automatically based on their roles",
         "To remove unused entitlements from the target application",
+        "To assign entitlements to users automatically based on their roles",
+        "To read the catalog of available entitlements (groups, roles, permissions) from the application into IIQ's entitlement catalog",
         "To create new entitlements in the target application"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Entitlement aggregation reads the list of available entitlements (like AD groups, SAP roles) from the application, populating IIQ's entitlement catalog for governance. Account aggregation captures which entitlements each account has. It doesn't assign entitlements to users. It doesn't create or remove entitlements in the source application."
     },
     {
       "d": 4,
       "q": "A company has 50 applications to onboard into IdentityIQ. The governance team wants to prioritize. Which applications should typically be onboarded first?",
       "o": [
-        "The authoritative source (HR system) and high-risk, high-visibility applications",
-        "The smallest applications with the fewest user accounts",
         "Applications that are scheduled for decommissioning within a year",
+        "The smallest applications with the fewest user accounts",
+        "The authoritative source (HR system) and high-risk, high-visibility applications",
         "Applications that already have their own robust access management"
       ],
-      "a": 0,
+      "a": 2,
       "e": "The authoritative source must be onboarded first to establish the identity population that all governance processes depend on. High-risk applications follow to maximize governance value quickly. Small applications provide less governance benefit initially. Decommissioning applications are low priority. Applications with existing access management still need governance but aren't the first priority."
     },
     {
@@ -950,60 +950,60 @@
       "d": 4,
       "q": "Which connector capability allows IdentityIQ to read only changes since the last aggregation rather than reading all accounts?",
       "o": [
-        "Delta (incremental) aggregation",
         "Full aggregation with result caching",
+        "Delta (incremental) aggregation",
         "Schema discovery with change tracking",
         "Provisioning plan execution"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Delta (incremental) aggregation reads only accounts that changed since the last run, reducing processing time and system load significantly. Full aggregation always reads everything regardless of caching. Schema discovery reads metadata structure, not account changes. Provisioning writes to applications, not reads."
     },
     {
       "d": 4,
       "q": "An IdentityIQ administrator needs to connect to a database-backed application where user accounts are stored in relational tables. Which connector is appropriate?",
       "o": [
-        "The JDBC connector",
+        "The DelimitedFile connector",
         "The LDAP connector",
         "The Active Directory connector",
-        "The DelimitedFile connector"
+        "The JDBC connector"
       ],
-      "a": 0,
+      "a": 3,
       "e": "The JDBC connector connects directly to relational databases using SQL queries to read account and entitlement data from tables and views. LDAP is for directory services. Active Directory is a specific LDAP directory connector. DelimitedFile reads exported text files, not live databases."
     },
     {
       "d": 4,
       "q": "An application owner reports that after onboarding their application, IIQ shows incorrect entitlement names. Where should the administrator investigate?",
       "o": [
-        "The application schema configuration, specifically the entitlement attribute mapping and display name settings",
+        "The global SystemConfiguration object",
         "The identity refresh task configuration",
         "The certification campaign settings for this application",
-        "The global SystemConfiguration object"
+        "The application schema configuration, specifically the entitlement attribute mapping and display name settings"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Entitlement display names are controlled by the application schema, specifically which attribute is designated as the display name or description for entitlements. Identity refresh doesn't control entitlement display. Certification settings control review processes. SystemConfiguration holds global settings, not per-application entitlement display."
     },
     {
       "d": 4,
       "q": "What is the role of a customization rule on an application during aggregation?",
       "o": [
-        "It transforms or enriches account data as it is read from the application before it is processed by IIQ",
+        "It restricts which identities can see this application in the access request catalog",
         "It customizes the visual theme of the application's page in the IIQ interface",
         "It defines custom approval workflows for access requests to this application",
-        "It restricts which identities can see this application in the access request catalog"
+        "It transforms or enriches account data as it is read from the application before it is processed by IIQ"
       ],
-      "a": 0,
+      "a": 3,
       "e": "A customization rule executes during aggregation to transform, filter, or enrich account data before IIQ processes it (e.g., normalizing values, computing derived attributes). It doesn't affect the IIQ interface appearance. Approval workflows are separate workflow objects. Catalog visibility is controlled by scoping and authorization."
     },
     {
       "d": 4,
       "q": "An administrator is onboarding an application and needs to handle accounts that exist in the application but cannot be correlated to any identity. What are these called?",
       "o": [
-        "Uncorrelated accounts",
+        "Stale links",
         "Orphan identities",
         "Phantom entitlements",
-        "Stale links"
+        "Uncorrelated accounts"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Accounts in an application that can't be matched to an identity during correlation are called uncorrelated accounts. Orphan identities have no authoritative source record (the reverse situation). Phantom entitlements and stale links are not standard IIQ terminology for this scenario."
     },
     {
@@ -1022,60 +1022,60 @@
       "d": 4,
       "q": "During application onboarding, the administrator notices entitlement duplicates in the IIQ catalog after repeated aggregation runs. What is the likely cause?",
       "o": [
-        "The entitlement unique identifier (key attribute) is not properly configured, causing new entries instead of updates",
-        "The identity refresh task created duplicate entries in the catalog",
         "The certification campaign generated extra entitlement records",
+        "The identity refresh task created duplicate entries in the catalog",
+        "The entitlement unique identifier (key attribute) is not properly configured, causing new entries instead of updates",
         "The workflow engine duplicated provisioning requests"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Entitlement duplication typically occurs when the unique key for entitlements isn't properly configured, so aggregation creates new entries instead of matching and updating existing ones. Identity refresh doesn't create entitlement catalog entries. Certifications don't create entitlements. Workflows handle requests, not catalog management."
     },
     {
       "d": 4,
       "q": "A SailPoint administrator needs to integrate IdentityIQ with a mainframe application using a proprietary protocol that no pre-built connector supports. What is the recommended approach?",
       "o": [
-        "Develop a custom connector using the SailPoint openconnector framework",
+        "Use the SCIM connector with protocol translation",
         "Export mainframe data to Active Directory and use the AD connector",
         "Configure the JDBC connector to talk the proprietary protocol",
-        "Use the SCIM connector with protocol translation"
+        "Develop a custom connector using the SailPoint openconnector framework"
       ],
-      "a": 0,
+      "a": 3,
       "e": "The openconnector framework allows development of custom connectors for any application or protocol. Exporting to AD adds unnecessary complexity and indirection. JDBC only speaks SQL/database protocols. The SCIM connector is designed for SCIM-compliant APIs and doesn't support arbitrary protocol translation."
     },
     {
       "d": 5,
       "q": "An IdentityIQ administrator is setting up the role model. Which role type represents a business function like 'Accounts Payable Clerk'?",
       "o": [
-        "Business role",
         "IT role",
+        "Business role",
         "Organizational role",
         "Entitlement role"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Business roles represent job functions understood by business users (like 'Accounts Payable Clerk') and typically inherit or require IT roles that contain specific entitlements. IT roles group technical application entitlements. Organizational roles are based on organizational structure (department, location). Entitlement roles wrap individual application permissions."
     },
     {
       "d": 5,
       "q": "What is the primary difference between an IT role and a business role in IdentityIQ?",
       "o": [
-        "IT roles group specific application entitlements; business roles represent higher-level job functions that may contain IT roles",
         "IT roles are for the IT department only; business roles are for all other departments",
+        "IT roles group specific application entitlements; business roles represent higher-level job functions that may contain IT roles",
         "IT roles are assigned manually; business roles are always assigned automatically",
         "IT roles are more important than business roles in the role hierarchy"
       ],
-      "a": 0,
+      "a": 1,
       "e": "IT roles group specific application entitlements at the technical level (e.g., 'SAP Finance Access'), while business roles represent broader job functions (e.g., 'Financial Analyst') and may contain multiple IT roles. Both can apply to any department. Both can be assigned manually or automatically. The hierarchy is about abstraction level, not importance."
     },
     {
       "d": 5,
       "q": "An organization wants to define a role hierarchy where business roles contain IT roles, which in turn reference specific entitlements. What does this hierarchy enable?",
       "o": [
-        "Layered governance where business users manage business roles while IT manages technical entitlement mappings",
         "Automatic deletion of lower-level roles when higher-level roles are removed",
+        "Layered governance where business users manage business roles while IT manages technical entitlement mappings",
         "Complete elimination of the need for access certifications",
         "Real-time synchronization between all role levels"
       ],
-      "a": 0,
+      "a": 1,
       "e": "A layered role hierarchy separates business-level governance from technical entitlement management, letting business owners manage business roles while IT maintains the underlying entitlement mappings in IT roles. Removing a parent role doesn't delete child roles; it removes the inheritance relationship. Certifications are still needed for ongoing attestation. Role changes propagate during refresh, not in real-time."
     },
     {
@@ -1094,12 +1094,12 @@
       "d": 5,
       "q": "An administrator configures a role assignment rule that automatically assigns a role to all identities in the Finance department. What type of role assignment is this?",
       "o": [
-        "Automatic assignment via an assignment rule based on identity attributes",
+        "Inherited assignment from a parent role in the hierarchy",
         "Manual assignment by a manager through the access request portal",
         "Detected assignment based on existing entitlements found during aggregation",
-        "Inherited assignment from a parent role in the hierarchy"
+        "Automatic assignment via an assignment rule based on identity attributes"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Assignment rules automatically assign roles based on identity attributes (department, location, job title), enabling birthright access. Manual assignment requires an explicit request. Detected roles are found because a user already has the matching entitlements. Inherited assignment comes from parent-child role relationships, not attribute-based rules."
     },
     {
@@ -1118,12 +1118,12 @@
       "d": 5,
       "q": "What is the difference between a 'detected' role and an 'assigned' role in IdentityIQ?",
       "o": [
-        "A detected role is found because the user already has all entitlements in the role profile; an assigned role is explicitly granted to the user",
         "A detected role is temporary; an assigned role is permanent",
+        "A detected role is found because the user already has all entitlements in the role profile; an assigned role is explicitly granted to the user",
         "A detected role applies to contractors only; an assigned role applies to employees",
         "A detected role is a role that was deleted; an assigned role is a role that still exists"
       ],
-      "a": 0,
+      "a": 1,
       "e": "A detected role means IIQ discovered the user has all the entitlements that match a role's profile (bottom-up). An assigned role was explicitly granted (top-down), and IIQ ensures the user gets its entitlements. Detection doesn't imply temporary status. Both apply to any identity type. Detection doesn't relate to role deletion."
     },
     {
@@ -1154,96 +1154,96 @@
       "d": 5,
       "q": "What does a 'required' role relationship mean in IdentityIQ's role model?",
       "o": [
-        "A role that is automatically included when the parent role is assigned to an identity",
         "A role that must be reviewed in every certification campaign",
+        "A role that is automatically included when the parent role is assigned to an identity",
         "A role that every identity in the organization must hold",
         "A role that requires special approval from the CISO before assignment"
       ],
-      "a": 0,
+      "a": 1,
       "e": "A required role is automatically inherited when the parent role is assigned - the identity gets both the parent and the required child role's entitlements. It doesn't relate to certification requirements. It doesn't mean every identity must have it. CISO approval is a workflow concern, not a role hierarchy concept."
     },
     {
       "d": 5,
       "q": "An administrator needs to define a role that is based on organizational attributes and serves as a container for business roles. Which role type is most appropriate?",
       "o": [
-        "Organizational role",
+        "Application role",
         "IT role",
         "Entitlement role",
-        "Application role"
+        "Organizational role"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Organizational roles are based on organizational structure (department, location, job code) and serve as high-level containers that can require or permit business roles. IT roles group application-specific entitlements. Entitlement roles wrap individual permissions. Application role is not a standard IIQ role type."
     },
     {
       "d": 5,
       "q": "A role modeler wants to test the impact of a new role before deploying it. Which IdentityIQ capability supports this?",
       "o": [
-        "Role impact analysis showing which identities would be affected by the new role definition",
-        "Provisioning simulation that creates temporary accounts in all target applications",
         "Automatic rollback of any role deployed in the last 24 hours",
+        "Provisioning simulation that creates temporary accounts in all target applications",
+        "Role impact analysis showing which identities would be affected by the new role definition",
         "Certification preview that shows future review results"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Role impact analysis simulates the effect of a role definition change, showing how many identities would gain, lose, or retain access. IIQ doesn't create temporary test accounts in target systems. There's no automatic 24-hour rollback feature. Certification previews don't predict future results based on hypothetical role changes."
     },
     {
       "d": 5,
       "q": "Why is it important to assign a role owner to each role in IdentityIQ?",
       "o": [
-        "Role owners are responsible for reviewing, maintaining, and attesting to the appropriateness of their role's definition and membership",
         "Role owners are the only people who can be assigned the role",
+        "Role owners are responsible for reviewing, maintaining, and attesting to the appropriateness of their role's definition and membership",
         "Role owners automatically receive all entitlements in the role",
         "Role owners are required by IIQ to start the application server"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Role owners take responsibility for their role's governance: reviewing the role definition, certifying membership, and ensuring the role stays aligned with business needs. Anyone eligible can be assigned a role, not just the owner. Owners don't automatically get the role's entitlements. Role ownership has no relation to server operations."
     },
     {
       "d": 5,
       "q": "An employee has a business role assigned but is found to have additional entitlements beyond what the role grants. What does this indicate?",
       "o": [
-        "The employee has additional access beyond their role (exception access), which should be reviewed during certification",
-        "The role definition is automatically updated to include the extra entitlements",
         "The role model is invalid and must be rebuilt from scratch",
+        "The role definition is automatically updated to include the extra entitlements",
+        "The employee has additional access beyond their role (exception access), which should be reviewed during certification",
         "The employee's identity is corrupted and must be recreated"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Entitlements beyond what roles grant are called exception access or additional access. This is common and should be reviewed during certifications to determine if it's appropriate. IIQ doesn't automatically update role definitions based on individual access. Extra access doesn't invalidate the entire role model. It doesn't indicate identity corruption."
     },
     {
       "d": 5,
       "q": "What is the benefit of using role-based access control (RBAC) versus granting individual entitlements to each user?",
       "o": [
-        "Roles simplify governance by grouping entitlements into manageable business-meaningful bundles, reducing review complexity",
         "RBAC is required by law in all regulated industries",
+        "Roles simplify governance by grouping entitlements into manageable business-meaningful bundles, reducing review complexity",
         "RBAC eliminates the need for any access reviews or certifications",
         "RBAC prevents all possible security vulnerabilities"
       ],
-      "a": 0,
+      "a": 1,
       "e": "RBAC bundles entitlements into roles that align with job functions, making it easier to assign, review, and certify access. Reviewers evaluate role assignments rather than hundreds of individual entitlements. RBAC isn't legally mandated (though it supports compliance). Certifications are still needed. No access model prevents all vulnerabilities."
     },
     {
       "d": 5,
       "q": "An administrator wants to automatically assign a 'Global Employee' role to every active identity in the organization. How should this be configured?",
       "o": [
-        "Create a role assignment rule with a condition that matches all active identities (e.g., where inactive is false)",
-        "Manually assign the role to each identity through the UI",
         "Create a certification campaign that assigns the role",
+        "Manually assign the role to each identity through the UI",
+        "Create a role assignment rule with a condition that matches all active identities (e.g., where inactive is false)",
         "Configure the application connector to inject the role"
       ],
-      "a": 0,
+      "a": 2,
       "e": "An assignment rule with a broad condition (like inactive=false) will automatically assign the role to all matching active identities during identity refresh. Manual assignment doesn't scale. Certifications review access, they don't assign roles. Connectors aggregate application data, not IIQ role assignments."
     },
     {
       "d": 5,
       "q": "During role modeling, the team discovers that two departments need identical application access but have different job titles. How should this be modeled?",
       "o": [
-        "Create one IT role with the shared entitlements and assign it to the business or organizational roles for both departments",
+        "Create a policy exception for the second department",
         "Create duplicate IT roles with identical entitlements for each department",
         "Grant the entitlements individually to every user without using roles",
-        "Create a policy exception for the second department"
+        "Create one IT role with the shared entitlements and assign it to the business or organizational roles for both departments"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Shared access should be modeled as a single IT role that multiple business or organizational roles can reference, following DRY principles and ensuring consistency. Duplicating roles leads to role explosion and maintenance burden. Individual grants bypass governance. Policy exceptions are for violations, not for modeling shared access."
     },
     {
@@ -1262,168 +1262,168 @@
       "d": 5,
       "q": "What is the purpose of role certification (role composition certification) in IdentityIQ?",
       "o": [
-        "To review and attest that a role's definition, entitlements, and membership are still appropriate",
+        "To synchronize role data between IdentityIQ and target applications",
         "To automatically assign roles to new employees during onboarding",
         "To generate new roles based on current access patterns",
-        "To synchronize role data between IdentityIQ and target applications"
+        "To review and attest that a role's definition, entitlements, and membership are still appropriate"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Role certification allows role owners and stakeholders to review and attest that a role's composition (its entitlements and policies), membership, and purpose remain valid and appropriate. It doesn't assign roles. Role generation is done through role mining. Role synchronization to target applications is done through provisioning."
     },
     {
       "d": 5,
       "q": "An organization uses SailPoint IdentityIQ and wants to implement a 'top-down' approach to role modeling. What does this mean?",
       "o": [
-        "Starting with business functions and organizational structure to define roles, then mapping entitlements to those roles",
+        "Defining roles based only on what users currently have without business input",
         "Starting with raw entitlement data and using algorithms to discover roles automatically",
         "Assigning the most privileged roles first and working down to basic access",
-        "Defining roles based only on what users currently have without business input"
+        "Starting with business functions and organizational structure to define roles, then mapping entitlements to those roles"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Top-down role modeling starts with business requirements: defining roles based on job functions, organizational structure, and business processes, then mapping the necessary entitlements. Bottom-up (role mining) starts with raw entitlement data. Top-down doesn't mean starting with privileged access. Top-down explicitly incorporates business input rather than relying solely on current access."
     },
     {
       "d": 6,
       "q": "A compliance officer wants IdentityIQ to prevent users from having both 'Create Vendor' and 'Approve Payment' entitlements simultaneously. Which policy type should be configured?",
       "o": [
-        "Separation of Duties (SoD) policy",
+        "Password policy",
         "Account policy",
         "Activity policy",
-        "Password policy"
+        "Separation of Duties (SoD) policy"
       ],
-      "a": 0,
+      "a": 3,
       "e": "SoD policies define forbidden combinations of entitlements, roles, or permissions that represent compliance risks. An account policy governs account-level settings like password rules and lockout behavior. An activity policy monitors user behavior patterns. A password policy controls password complexity and lifecycle."
     },
     {
       "d": 6,
       "q": "An IdentityIQ administrator configures a SoD policy and sets it to 'preventive' mode. What does this mean?",
       "o": [
-        "The policy will block access requests that would create a violation before access is granted",
-        "The policy will detect existing violations and generate reports but not block requests",
         "The policy will automatically remediate all current violations by revoking access",
+        "The policy will detect existing violations and generate reports but not block requests",
+        "The policy will block access requests that would create a violation before access is granted",
         "The policy will send an email notification but take no enforcement action"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Preventive SoD enforcement blocks access requests that would create a policy violation at request time, stopping violations before they occur. Detective mode identifies existing violations without blocking. Automatic remediation would require additional workflow configuration. Notifications alone are informational, not preventive enforcement."
     },
     {
       "d": 6,
       "q": "During a scheduled policy scan, IdentityIQ detects 50 new SoD violations across the organization. What is the next step in the compliance workflow?",
       "o": [
-        "Generate policy violation records and route them to violation owners or designated remediators for action",
+        "Ignore the violations until the next certification campaign",
         "Automatically revoke all violating entitlements without any human review",
         "Delete the identities that have violations from the system",
-        "Ignore the violations until the next certification campaign"
+        "Generate policy violation records and route them to violation owners or designated remediators for action"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Policy violations create records that are routed to designated owners or remediators who decide the appropriate action (remediate, allow with exception, or escalate). Automatic mass revocation without review could disrupt business operations. Identities aren't deleted for policy violations. Violations should be addressed promptly, not deferred to certification cycles."
     },
     {
       "d": 6,
       "q": "What is the purpose of an account policy in IdentityIQ?",
       "o": [
-        "To define account-level rules such as password requirements, inactive account handling, and account attribute constraints",
-        "To define which accounts are allowed to exist in the system",
         "To specify the maximum number of accounts an identity can have",
+        "To define which accounts are allowed to exist in the system",
+        "To define account-level rules such as password requirements, inactive account handling, and account attribute constraints",
         "To create new accounts in target applications automatically"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Account policies govern account-level behaviors including password strength rules, inactive account detection, and attribute-based constraints. They don't control which accounts are 'allowed' to exist. Account count limits aren't a standard account policy feature. Account creation is handled by provisioning, not account policies."
     },
     {
       "d": 6,
       "q": "An organization needs to track and flag identities whose risk score exceeds a certain threshold. Which IdentityIQ capability supports this?",
       "o": [
-        "Risk-based policies that evaluate identity risk scores and generate alerts or violations when thresholds are exceeded",
-        "Account policies that track login attempts",
         "Password policies that require stronger passwords for high-risk users",
+        "Account policies that track login attempts",
+        "Risk-based policies that evaluate identity risk scores and generate alerts or violations when thresholds are exceeded",
         "Certification campaigns that only include high-risk applications"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Risk-based policies can monitor identity risk scores and take action (alert, flag, or create violations) when thresholds are exceeded. Account policies handle account-level settings, not risk scoring thresholds. Password policies manage credential requirements. Certifications can be scoped by risk but don't monitor risk thresholds in real-time."
     },
     {
       "d": 6,
       "q": "A manager requests an exception for an employee's SoD violation because it is temporarily needed for a critical project. How does IdentityIQ handle this?",
       "o": [
-        "The violation can be acknowledged with a documented exception, including the business justification and an expiration date",
         "Exceptions are not possible; all SoD violations must be immediately remediated",
+        "The violation can be acknowledged with a documented exception, including the business justification and an expiration date",
         "The entire SoD policy must be disabled to allow the exception",
         "The employee's identity must be duplicated to separate the conflicting access"
       ],
-      "a": 0,
+      "a": 1,
       "e": "IIQ supports policy violation exceptions with documentation, justification, and optional expiration dates, allowing temporary deviations with governance oversight. Exceptions are a standard governance capability. Disabling the entire policy would remove protection for all users. Duplicating identities creates governance problems rather than solving them."
     },
     {
       "d": 6,
       "q": "What is the difference between a policy violation and a certification revocation in IdentityIQ?",
       "o": [
-        "A policy violation is an automated detection of a rule breach; a certification revocation is a manual decision by a reviewer to remove access",
-        "Policy violations are more severe than certification revocations",
         "Policy violations only apply to SoD; certification revocations apply to all access",
+        "Policy violations are more severe than certification revocations",
+        "A policy violation is an automated detection of a rule breach; a certification revocation is a manual decision by a reviewer to remove access",
         "There is no difference; they are the same concept"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Policy violations are system-generated when automated policy scans detect rule breaches (like SoD conflicts). Certification revocations occur when a human reviewer decides during an access review that access should be removed. Severity depends on context, not the mechanism. Policy violations can include types beyond SoD (risk, activity, etc.). They are distinct governance mechanisms."
     },
     {
       "d": 6,
       "q": "An auditor asks for evidence that all SoD violations in the past year were either remediated or had documented exceptions. Which IdentityIQ feature provides this?",
       "o": [
-        "Policy violation audit history and reports showing all violations, their resolutions, and any active exceptions",
-        "The aggregation task execution log",
         "The application connector configuration export",
+        "The aggregation task execution log",
+        "Policy violation audit history and reports showing all violations, their resolutions, and any active exceptions",
         "The identity refresh task history"
       ],
-      "a": 0,
+      "a": 2,
       "e": "IIQ maintains a complete audit trail of policy violations including detection, remediation actions, exceptions granted, and their justifications. Aggregation logs show data import activities. Connector configurations show technical setup. Identity refresh history shows processing details, not compliance resolution tracking."
     },
     {
       "d": 6,
       "q": "What is the purpose of a policy simulation in IdentityIQ?",
       "o": [
-        "To preview how many violations a new or modified policy would detect before activating it in production",
         "To simulate user login behavior for security testing",
+        "To preview how many violations a new or modified policy would detect before activating it in production",
         "To test application connector performance under load",
         "To preview certification campaign scope before launching it"
       ],
-      "a": 0,
+      "a": 1,
       "e": "Policy simulation runs a proposed policy against current identity data to show how many violations it would detect, allowing administrators to evaluate impact before activation. It doesn't simulate logins. It doesn't test connector performance. Certification scope preview is a separate feature."
     },
     {
       "d": 6,
       "q": "An administrator needs to create a policy that flags identities who have not logged into any system in over 90 days. Which policy type is most appropriate?",
       "o": [
-        "An activity-based policy checking for account inactivity",
+        "A role composition policy",
         "A separation of duties policy",
         "A password complexity policy",
-        "A role composition policy"
+        "An activity-based policy checking for account inactivity"
       ],
-      "a": 0,
+      "a": 3,
       "e": "Activity-based policies can evaluate patterns of activity (or inactivity) to identify dormant accounts or identities. SoD policies address conflicting access combinations. Password policies govern credential requirements. Role composition policies check role structure, not user activity patterns."
     },
     {
       "d": 6,
       "q": "What remediation options are typically available when a policy violation is detected in IdentityIQ?",
       "o": [
-        "Revoke the violating access, allow with a documented exception, or reassign the violation to another reviewer",
-        "Only automatic revocation with no human intervention possible",
         "Only ignoring the violation until the next certification",
+        "Only automatic revocation with no human intervention possible",
+        "Revoke the violating access, allow with a documented exception, or reassign the violation to another reviewer",
         "Only escalation to the CEO for final decision"
       ],
-      "a": 0,
+      "a": 2,
       "e": "Standard remediation options include revoking violating access, creating an exception with business justification, delegating to another reviewer, or escalating. Multiple options exist, not just automatic revocation. Violations shouldn't simply be ignored. Escalation has multiple levels, not just the CEO."
     },
     {
       "d": 6,
       "q": "An organization needs to ensure that every identity with access to a classified system has completed security clearance verification. Which approach in IdentityIQ supports this?",
       "o": [
-        "A policy that checks whether identities with the classified system entitlement have a 'clearance verified' attribute set to true",
-        "A password policy requiring longer passwords for classified system users",
         "An account naming convention that includes clearance level",
+        "A password policy requiring longer passwords for classified system users",
+        "A policy that checks whether identities with the classified system entitlement have a 'clearance verified' attribute set to true",
         "A certification campaign limited to the classified system application"
       ],
-      "a": 0,
+      "a": 2,
       "e": "A policy can cross-reference entitlement assignments with identity attributes, flagging violations when someone has classified access without the verified clearance attribute. Password length doesn't verify clearance. Naming conventions don't enforce governance requirements. Certifications review access appropriateness but don't automatically check attribute prerequisites."
     },
     {
@@ -1442,60 +1442,60 @@
       "d": 6,
       "q": "An IdentityIQ administrator wants to define an SoD policy at the entitlement level across two different applications. Is this possible?",
       "o": [
-        "Yes, SoD policies in IIQ can define conflicting combinations across entitlements from different applications",
+        "Yes, but only if both applications use the same connector type",
         "No, SoD policies can only check conflicts within a single application",
         "No, SoD policies only work at the role level, not the entitlement level",
-        "Yes, but only if both applications use the same connector type"
+        "Yes, SoD policies in IIQ can define conflicting combinations across entitlements from different applications"
       ],
-      "a": 0,
+      "a": 3,
       "e": "IIQ's SoD policies can define cross-application entitlement conflicts (e.g., an entitlement in SAP conflicting with one in Oracle). They are not limited to single applications. SoD works at both role and entitlement levels. The connector type doesn't affect policy capability."
     },
     {
       "d": 6,
       "q": "What is the purpose of the compliance dashboard in IdentityIQ?",
       "o": [
-        "To provide an overview of policy violations, certification status, and risk metrics across the organization",
+        "To create new identities in the system",
         "To manage application connector configurations",
         "To configure the database connection settings",
-        "To create new identities in the system"
+        "To provide an overview of policy violations, certification status, and risk metrics across the organization"
       ],
-      "a": 0,
+      "a": 3,
       "e": "The compliance dashboard gives stakeholders visibility into the organization's governance posture: outstanding violations, certification completion rates, risk distribution, and compliance trends. Connector configuration is done in application settings. Database settings are in server configuration. Identity creation happens through lifecycle processes."
     },
     {
       "d": 6,
       "q": "An organization is subject to SOX, HIPAA, and PCI-DSS regulations. How does IdentityIQ help manage compliance across multiple regulatory frameworks?",
       "o": [
-        "Through configurable policies, certifications, and reports that can be tailored to each regulation's specific requirements",
         "By automatically determining which regulations apply to each identity",
+        "Through configurable policies, certifications, and reports that can be tailored to each regulation's specific requirements",
         "By replacing the need for external auditors with automated compliance certification",
         "By storing the full text of each regulation and mapping it to access controls"
       ],
-      "a": 0,
+      "a": 1,
       "e": "IIQ provides flexible governance tools (policies, certifications, reports) that can be configured to address specific requirements of different regulations. IIQ doesn't automatically determine regulatory applicability; that's a business decision. External auditors are still required; IIQ provides evidence for them. IIQ doesn't store regulation text; it implements controls."
     },
     {
       "d": 6,
       "q": "What happens when a policy violation's exception expires in IdentityIQ?",
       "o": [
-        "The violation is reactivated and routed for remediation again, requiring a new decision",
         "The violation is permanently closed and never revisited",
+        "The violation is reactivated and routed for remediation again, requiring a new decision",
         "The identity associated with the violation is automatically deactivated",
         "The expired exception is automatically renewed for another period"
       ],
-      "a": 0,
+      "a": 1,
       "e": "When an exception expires, the violation becomes active again and re-enters the remediation workflow, ensuring that temporary exceptions don't become permanent. Violations aren't permanently closed after exception expiry. Identity deactivation is not triggered by exception expiry. Exceptions don't auto-renew; they require explicit re-approval."
     },
     {
       "d": 6,
       "q": "An administrator wants to generate an audit report showing all policy violations created in the last quarter, their current status, and who remediated them. Where should they look?",
       "o": [
-        "The policy violation report or audit reports section in IdentityIQ",
         "The aggregation task log files on the application server",
+        "The policy violation report or audit reports section in IdentityIQ",
         "The application connector debug output",
         "The identity cube XML export"
       ],
-      "a": 0,
+      "a": 1,
       "e": "IIQ provides built-in policy violation reports and audit reports with filtering by date, status, remediator, and other criteria. Aggregation logs show data import activity. Connector debug output shows technical integration details. Identity XML exports show individual identity data, not cross-organizational compliance reports."
     },
     {
